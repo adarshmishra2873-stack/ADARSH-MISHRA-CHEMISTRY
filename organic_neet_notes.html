@@ -6,6 +6,14 @@
 <title>🔬 Organic Chemistry - Complete NEET Notes</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Hind:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
+          .header-content { display: flex; align-items: center; justify-content: center; position: relative; max-width: 1600px; margin: 0 auto; }
+        .creator-attribution { display: flex; align-items: center; gap: 15px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); padding: 10px 15px; background-color: rgba(255, 255, 255, 0.15); border-radius: 50px; border: 2px solid rgba(255, 255, 255, 0.2); }
+        .creator-photo { width: 75px; height: 75px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, 0.8); object-fit: cover; }
+        .creator-info { display: flex; flex-direction: column; text-align: left; color: white; }
+        .created-by { font-size: 0.9em; opacity: 0.8; }
+        .creator-name { font-size: 1.3em; font-weight: 700; margin-bottom: 3px; }
+        .creator-tag { font-size: 0.8em; opacity: 0.9; font-style: italic; }
+        @media (max-width: 1024px) { .header-content { flex-direction: column; gap: 20px; } .creator-attribution { position: static; transform: none; margin-top: 15px; } }
   :root {
     --bg: #0d1117;
     --bg2: #161b22;
@@ -403,23 +411,23 @@
 </head>
 <body>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>⚗️ Complete Organic Chemistry NEET Notes</h1>
-  <p>Alkanes → Alkenes → Alkynes → Aromatic → Haloalkanes → Alcohol → Ether → Aldehyde/Ketone → Carboxylic Acid → Amines</p>
-  <div class="badge-row">
-    <span class="badge" style="color:var(--alkane);border-color:var(--alkane);background:rgba(88,166,255,0.1)">Alkanes</span>
-    <span class="badge" style="color:var(--alkene);border-color:var(--alkene);background:rgba(63,185,80,0.1)">Alkenes</span>
-    <span class="badge" style="color:var(--alkyne);border-color:var(--alkyne);background:rgba(210,168,255,0.1)">Alkynes</span>
-    <span class="badge" style="color:var(--aromatic);border-color:var(--aromatic);background:rgba(255,166,87,0.1)">Aromatic</span>
-    <span class="badge" style="color:var(--halo);border-color:var(--halo);background:rgba(240,136,62,0.1)">Haloalkanes</span>
-    <span class="badge" style="color:var(--alcohol);border-color:var(--alcohol);background:rgba(248,81,73,0.1)">Alcohol/Phenol</span>
-    <span class="badge" style="color:var(--ether);border-color:var(--ether);background:rgba(188,140,255,0.1)">Ether</span>
-    <span class="badge" style="color:var(--aldehyde);border-color:var(--aldehyde);background:rgba(121,192,255,0.1)">Ald/Ket</span>
-    <span class="badge" style="color:var(--acid);border-color:var(--acid);background:rgba(248,81,73,0.1)">Carboxylic Acid</span>
-    <span class="badge" style="color:var(--amine);border-color:var(--amine);background:rgba(210,153,34,0.1)">Amines</span>
-  </div>
-</div>
+    <header>
+        <div class="header-content hero">
+            <div>
+                <h1>⚗️ Complete Organic Chemistry NEET Notes</h1>
+                <p>Alkanes → Alkenes → Alkynes → Aromatic → Haloalkanes → Alcohol → Ether → Aldehyde/Ketone → Carboxylic Acid → Amines</p>
+            </div>
+            <div class="creator-attribution">
+                <img src="1000223590.jpg" alt="ADARSH KUMAR MISHRA" class="creator-photo">
+                <div class="creator-info">
+                    <span class="created-by">Created By:</span>
+                    <span class="creator-name">ADARSH KUMAR MISHRA</span>
+                    <span class="creator-tag">NEET Aspirant & Note Creator</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
 
 <!-- NAV -->
 <div class="nav-bar">
