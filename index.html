@@ -391,6 +391,31 @@
     margin-bottom: 0.8rem;
   }
 
+        /* --- Naye Advanced Features ka Design --- */
+        /* Dark Mode */
+        body.dark-mode {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --nav-bg: #1e1e1e;
+            --shadow: 0 4px 6px rgba(255,255,255,0.05);
+        }
+        body.dark-mode .content-card, body.dark-mode .molecule-simplified { background-color: #1e1e1e; border-color: #444; }
+        body.dark-mode .exam-strategy, body.dark-mode .strategy-item { background-color: #1e1e1e; border-color: #444; color: #e0e0e0; }
+        body.dark-mode .mnemonic-table td { background-color: #2a2a2a; color: #e0e0e0; border-color: #444; }
+
+        .theme-toggle { cursor: pointer; background: rgba(0,0,0,0.3); border: 2px solid rgba(255,255,255,0.5); color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; transition: 0.3s; margin-right: 20px; }
+        .theme-toggle:hover { background: rgba(0,0,0,0.6); }
+
+        /* Search Bar */
+        .search-container { margin-bottom: 20px; }
+        #searchInput { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid var(--secondary-color); font-size: 1.1em; background: var(--nav-bg); color: var(--text-color); box-shadow: var(--shadow); outline: none; transition: 0.3s; }
+        #searchInput:focus { border-color: var(--primary-color); }
+
+        /* Study Tracker */
+        .tracker-box { margin-top: 20px; padding-top: 15px; border-top: 2px dashed #ddd; }
+        .tracker-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.95em; font-weight: 500; }
+        .tracker-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary-color); }
+          
   /* FOOTER */
   .footer {
     text-align: center;
@@ -417,6 +442,8 @@
                 <h1>⚗️ Complete Organic Chemistry NEET Notes</h1>
                 <p>Alkanes → Alkenes → Alkynes → Aromatic → Haloalkanes → Alcohol → Ether → Aldehyde/Ketone → Carboxylic Acid → Amines</p>
             </div>
+                      <button id="theme-toggle-btn" class="theme-toggle">🌙 Dark Mode</button>
+
             <div class="creator-attribution">
                 <img src="1000223590.jpg" alt="ADARSH KUMAR MISHRA" class="creator-photo">
                 <div class="creator-info">
@@ -447,6 +474,10 @@
 
 <!-- LEGEND -->
 <div class="container">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="🔍 Search organic concepts, reactions, or mnemonics...">
+            </div>
+
 <div class="legend">
   <h3>🎨 COLOR LEGEND — Har rang ka matlab:</h3>
   <div class="leg-item"><div class="leg-dot" style="background:var(--reagent)"></div><span class="reagent">Reagent (kya use karo)</span></div>
@@ -1993,6 +2024,13 @@
   </div>
 </div>
 
+              <div class="tracker-box">
+                <h4 style="color: var(--primary-color); margin-bottom: 10px;">NCERT Daily Tracker</h4>
+                <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> GOC Complete Reading</label>
+                <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> Solved 50 MCQs</label>
+                <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> Revised Reaction Mechanism</label>
+            </div>
+                  
 <div class="footer">
   ⚗️ Complete Organic Chemistry NEET Notes — सभी reactions covered | 100% Notes Coverage<br>
   <span style="color:var(--trick)">🧠 Read the color legend — Reagent (blue), Catalyst (orange), Product (green), Trick (bright green)</span><br>
@@ -2011,5 +2049,50 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 </script>
+      <script>
+        // 1. Dark Mode Logic
+        const themeBtn = document.getElementById('theme-toggle-btn');
+        if(localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeBtn.innerText = '☀️ Light Mode';
+        }
+        if(themeBtn) {
+            themeBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                if(document.body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark');
+                    themeBtn.innerText = '☀️ Light Mode';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    themeBtn.innerText = '🌙 Dark Mode';
+                }
+            });
+        }
+
+        // 2. Live Search Logic
+        const searchInput = document.getElementById('searchInput');
+        if(searchInput) {
+            searchInput.addEventListener('keyup', function() {
+                let filter = this.value.toLowerCase();
+                let cards = document.querySelectorAll('.content-card');
+                cards.forEach(card => {
+                    let text = card.innerText.toLowerCase();
+                    card.style.display = text.includes(filter) ? '' : 'none';
+                });
+            });
+        }
+
+        // 3. Study Tracker Memory Logic
+        const checkboxes = document.querySelectorAll('.tracker-checkbox');
+        checkboxes.forEach((box, index) => {
+            if(localStorage.getItem('tracker_' + index) === 'true') {
+                box.checked = true;
+            }
+            box.addEventListener('change', function() {
+                localStorage.setItem('tracker_' + index, this.checked);
+            });
+        });
+    </script>
+                  
 </body>
 </html>
