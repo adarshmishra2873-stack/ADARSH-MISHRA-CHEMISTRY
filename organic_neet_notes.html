@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔬 Organic Chemistry - Complete NEET Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Hind:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #1c2128;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --alkane: #58a6ff;
+    --alkene: #3fb950;
+    --alkyne: #d2a8ff;
+    --aromatic: #ffa657;
+    --alcohol: #f85149;
+    --aldehyde: #79c0ff;
+    --ketone: #56d364;
+    --acid: #ff7b72;
+    --amine: #d29922;
+    --ether: #bc8cff;
+    --halo: #f0883e;
+    --highlight: #e3b341;
+    --trick: #39d353;
+    --reagent: #58a6ff;
+    --product: #3fb950;
+    --catalyst: #ffa657;
+    --glow-blue: rgba(88,166,255,0.15);
+    --glow-green: rgba(63,185,80,0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Hind', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* HEADER */
+  .hero {
+    background: linear-gradient(135deg, #0d1117 0%, #1a1f2e 40%, #0d1117 100%);
+    border-bottom: 2px solid var(--border);
+    padding: 2rem 2rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(88,166,255,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 50%, rgba(210,168,255,0.08) 0%, transparent 60%);
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #58a6ff, #d2a8ff, #3fb950);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+  .hero p {
+    color: var(--muted);
+    font-size: 1rem;
+    margin-top: 0.4rem;
+    position: relative;
+  }
+  .badge-row {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    justify-content: center; margin-top: 1rem;
+    position: relative;
+  }
+  .badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid;
+    font-family: 'Baloo 2', cursive;
+  }
+
+  /* NAV */
+  .nav-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,17,23,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    justify-content: center;
+  }
+  .nav-btn {
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: var(--bg2);
+    color: var(--muted);
+    transition: all 0.2s;
+    font-family: 'Baloo 2', cursive;
+    text-decoration: none;
+  }
+  .nav-btn:hover { color: var(--text); border-color: var(--border); transform: translateY(-1px); }
+
+  /* MAIN LAYOUT */
+  .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
+
+  /* LEGEND */
+  .legend {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex; flex-wrap: wrap; gap: 1rem;
+  }
+  .legend h3 { width: 100%; font-family: 'Baloo 2', cursive; color: var(--muted); font-size: 0.85rem; margin-bottom: 0.3rem; }
+  .leg-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; }
+  .leg-dot { width: 12px; height: 12px; border-radius: 3px; }
+
+  /* CHAPTER */
+  .chapter {
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg2);
+  }
+  .chapter-header {
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    border-bottom: 1px solid var(--border);
+  }
+  .chapter-header:hover { background: var(--bg3); }
+  .chapter-icon { font-size: 1.8rem; }
+  .chapter-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  .chapter-sub { color: var(--muted); font-size: 0.85rem; margin-top: 0.1rem; }
+  .chapter-body { padding: 1.2rem 1.5rem; }
+
+  /* SECTIONS */
+  .section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1rem;
+  }
+
+  .section-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .section-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* REACTION TABLE */
+  .rxn-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin-top: 0.5rem;
+  }
+  .rxn-table th {
+    background: rgba(255,255,255,0.05);
+    padding: 0.4rem 0.6rem;
+    text-align: left;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.75rem;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .rxn-table td {
+    padding: 0.45rem 0.6rem;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .rxn-table tr:last-child td { border-bottom: none; }
+  .rxn-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+  .reagent { color: var(--reagent); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
+  .product { color: var(--product); font-weight: 600; }
+  .catalyst { color: var(--catalyst); font-size: 0.75rem; }
+  .condition { color: #79c0ff; font-size: 0.75rem; font-style: italic; }
+
+  /* HIGHLIGHT BOXES */
+  .trick-box {
+    background: rgba(57,211,83,0.08);
+    border: 1px solid rgba(57,211,83,0.3);
+    border-left: 4px solid var(--trick);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+  }
+  .trick-box .trick-title {
+    color: var(--trick);
+    font-weight: 700;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .warn-box {
+    background: rgba(248,81,73,0.08);
+    border: 1px solid rgba(248,81,73,0.3);
+    border-left: 4px solid var(--acid);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+  }
+  .warn-box .warn-title {
+    color: var(--acid);
+    font-weight: 700;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .info-box {
+    background: rgba(88,166,255,0.08);
+    border: 1px solid rgba(88,166,255,0.3);
+    border-left: 4px solid var(--alkane);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+  }
+  .info-box .info-title {
+    color: var(--alkane);
+    font-weight: 700;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+  }
+
+  /* HIGHLIGHT SPAN */
+  .hl { color: var(--highlight); font-weight: 700; }
+  .hl-blue { color: var(--alkane); font-weight: 600; }
+  .hl-green { color: var(--alkene); font-weight: 600; }
+  .hl-purple { color: var(--alkyne); font-weight: 600; }
+  .hl-orange { color: var(--catalyst); font-weight: 600; }
+  .hl-red { color: var(--acid); font-weight: 600; }
+
+  /* ARROW REACTIONS */
+  .rxn-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0;
+    font-size: 0.82rem;
+    flex-wrap: wrap;
+    border-bottom: 1px dashed rgba(48,54,61,0.7);
+  }
+  .rxn-line:last-child { border-bottom: none; }
+  .arrow { color: var(--muted); font-size: 1.1rem; flex-shrink: 0; }
+  .rxn-start { color: var(--text); }
+  .rxn-cond {
+    background: rgba(255,166,87,0.12);
+    border: 1px solid rgba(255,166,87,0.3);
+    border-radius: 4px;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.72rem;
+    color: var(--catalyst);
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+  }
+  .rxn-end { color: var(--product); font-weight: 600; }
+
+  /* COMPARISON TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin-top: 0.6rem;
+  }
+  .comp-table th {
+    padding: 0.4rem 0.6rem;
+    font-family: 'Baloo 2', cursive;
+    font-size: 0.78rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .comp-table td {
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid rgba(48,54,61,0.5);
+    vertical-align: top;
+  }
+
+  /* PRODUCT TAG */
+  .tag {
+    display: inline-block;
+    padding: 0.1rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin: 0.1rem;
+  }
+
+  /* COLLAPSIBLE */
+  .collapse-content { display: block; }
+
+  /* CHAPTER COLORS */
+  .ch-alkane .chapter-header { border-left: 4px solid var(--alkane); }
+  .ch-alkene .chapter-header { border-left: 4px solid var(--alkene); }
+  .ch-alkyne .chapter-header { border-left: 4px solid var(--alkyne); }
+  .ch-aromatic .chapter-header { border-left: 4px solid var(--aromatic); }
+  .ch-halo .chapter-header { border-left: 4px solid var(--halo); }
+  .ch-alcohol .chapter-header { border-left: 4px solid var(--alcohol); }
+  .ch-ether .chapter-header { border-left: 4px solid var(--ether); }
+  .ch-aldket .chapter-header { border-left: 4px solid var(--aldehyde); }
+  .ch-acid .chapter-header { border-left: 4px solid var(--acid); }
+  .ch-amine .chapter-header { border-left: 4px solid var(--amine); }
+
+  .ch-alkane .section-card::before { background: var(--alkane); }
+  .ch-alkene .section-card::before { background: var(--alkene); }
+  .ch-alkyne .section-card::before { background: var(--alkyne); }
+  .ch-aromatic .section-card::before { background: var(--aromatic); }
+  .ch-halo .section-card::before { background: var(--halo); }
+  .ch-alcohol .section-card::before { background: var(--alcohol); }
+  .ch-ether .section-card::before { background: var(--ether); }
+  .ch-aldket .section-card::before { background: var(--aldehyde); }
+  .ch-acid .section-card::before { background: var(--acid); }
+  .ch-amine .section-card::before { background: var(--amine); }
+
+  .num-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    flex-shrink: 0;
+  }
+
+  /* MEMORY TRICKS SECTION */
+  .memory-section {
+    background: linear-gradient(135deg, rgba(57,211,83,0.05), rgba(88,166,255,0.05));
+    border: 1px solid rgba(57,211,83,0.2);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin-top: 1rem;
+  }
+  .memory-section h3 {
+    font-family: 'Baloo 2', cursive;
+    color: var(--trick);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 700px) {
+    .section-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.6rem; }
+  }
+
+  .full-width { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>⚗️ Complete Organic Chemistry NEET Notes</h1>
+  <p>Alkanes → Alkenes → Alkynes → Aromatic → Haloalkanes → Alcohol → Ether → Aldehyde/Ketone → Carboxylic Acid → Amines</p>
+  <div class="badge-row">
+    <span class="badge" style="color:var(--alkane);border-color:var(--alkane);background:rgba(88,166,255,0.1)">Alkanes</span>
+    <span class="badge" style="color:var(--alkene);border-color:var(--alkene);background:rgba(63,185,80,0.1)">Alkenes</span>
+    <span class="badge" style="color:var(--alkyne);border-color:var(--alkyne);background:rgba(210,168,255,0.1)">Alkynes</span>
+    <span class="badge" style="color:var(--aromatic);border-color:var(--aromatic);background:rgba(255,166,87,0.1)">Aromatic</span>
+    <span class="badge" style="color:var(--halo);border-color:var(--halo);background:rgba(240,136,62,0.1)">Haloalkanes</span>
+    <span class="badge" style="color:var(--alcohol);border-color:var(--alcohol);background:rgba(248,81,73,0.1)">Alcohol/Phenol</span>
+    <span class="badge" style="color:var(--ether);border-color:var(--ether);background:rgba(188,140,255,0.1)">Ether</span>
+    <span class="badge" style="color:var(--aldehyde);border-color:var(--aldehyde);background:rgba(121,192,255,0.1)">Ald/Ket</span>
+    <span class="badge" style="color:var(--acid);border-color:var(--acid);background:rgba(248,81,73,0.1)">Carboxylic Acid</span>
+    <span class="badge" style="color:var(--amine);border-color:var(--amine);background:rgba(210,153,34,0.1)">Amines</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+  <a class="nav-btn" href="#alkane" style="color:var(--alkane)">Alkanes</a>
+  <a class="nav-btn" href="#alkene" style="color:var(--alkene)">Alkenes</a>
+  <a class="nav-btn" href="#alkyne" style="color:var(--alkyne)">Alkynes</a>
+  <a class="nav-btn" href="#aromatic" style="color:var(--aromatic)">Aromatic</a>
+  <a class="nav-btn" href="#halo" style="color:var(--halo)">Haloalkanes</a>
+  <a class="nav-btn" href="#alcohol" style="color:var(--alcohol)">Alcohol</a>
+  <a class="nav-btn" href="#phenol" style="color:#ff6b6b">Phenol</a>
+  <a class="nav-btn" href="#ether" style="color:var(--ether)">Ether</a>
+  <a class="nav-btn" href="#aldket" style="color:var(--aldehyde)">Ald/Ket</a>
+  <a class="nav-btn" href="#acid" style="color:var(--acid)">Carboxylic</a>
+  <a class="nav-btn" href="#amine" style="color:var(--amine)">Amines</a>
+  <a class="nav-btn" href="#tricks" style="color:var(--trick)">🧠 Memory Tricks</a>
+</div>
+
+<!-- LEGEND -->
+<div class="container">
+<div class="legend">
+  <h3>🎨 COLOR LEGEND — Har rang ka matlab:</h3>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--reagent)"></div><span class="reagent">Reagent (kya use karo)</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--catalyst)"></div><span class="catalyst">Catalyst / Condition</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--product)"></div><span class="product">Product (kya banega)</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--trick)"></div><span style="color:var(--trick)">🧠 Memory Trick</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--highlight)"></div><span class="hl">⚠️ Important / Exam Point</span></div>
+  <div class="leg-item"><div class="leg-dot" style="background:var(--acid)"></div><span style="color:var(--acid)">❌ Dhyan do / Exception</span></div>
+</div>
+
+<!-- ==================== ALKANES ==================== -->
+<div class="chapter ch-alkane" id="alkane">
+  <div class="chapter-header">
+    <span class="chapter-icon">🔵</span>
+    <div>
+      <div class="chapter-title" style="color:var(--alkane)">ALKANES (CₙH₂ₙ₊₂)</div>
+      <div class="chapter-sub">Saturated Hydrocarbons — Free Radical Mechanism (FRM)</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <!-- PREPARATION -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alkane)">🏗️ PREPARATION OF ALKANES</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">1</span>
+          <span class="rxn-start">Alkenes/Alkynes</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H₂ / Ni or Pt or Pd</span>
+          <span class="rxn-end">Alkane ✅</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">2</span>
+          <span class="rxn-start">R-X (Alkyl Halide)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Zn/H⁺ or dil HCl / Zn</span>
+          <span class="rxn-end">R-H (Alkane)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">3</span>
+          <span class="rxn-start">2R-X (Wurtz Rxn)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Na / Dry Ether</span>
+          <span class="rxn-end">R-R + 2NaX</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">4</span>
+          <span class="rxn-start">R-COONa (Decarboxylation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">NaOH + CaO / Δ (Soda Lime)</span>
+          <span class="rxn-end">R-H</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">5</span>
+          <span class="rxn-start">R-COONa (Kolbe's Electrolysis)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Electrolysis</span>
+          <span class="rxn-end">R-R + CO₂ (Anode)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">6</span>
+          <span class="rxn-start">C=O (Clemmensen)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Zn-Hg / Conc HCl</span>
+          <span class="rxn-end">CH₂ (Alkane)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">7</span>
+          <span class="rxn-start">C=O (Wolf-Kishner)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">NH₂-NH₂ / KOH / Δ</span>
+          <span class="rxn-end">CH₂</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Wurtz Trick याद करो:</div>
+          <b>W</b>urtz = <b>W</b>ही carbon दोगुना करता है! (R-X → R-R, carbon double ho jaata hai)<br>
+          3° R-X mainly disproportion deta hai → better result nahi<br>
+          ROR: I > Br > Cl ≠ F (F nahi deta Wurtz)
+        </div>
+      </div>
+
+      <!-- CHEMICAL PROPERTIES -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alkane)">⚗️ CHEMICAL PROPERTIES</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">1</span>
+          <span class="rxn-start">R-H + X₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">hν (Free Radical)</span>
+          <span class="rxn-end">R-X + HX (Halogenation)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">2</span>
+          <span class="rxn-start">R-H + I₂</span>
+          <span class="arrow">⇌</span>
+          <span class="rxn-cond">HNO₃ (oxidizer)</span>
+          <span class="rxn-end">R-I + HI (Iodination)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">3</span>
+          <span class="rxn-start">CH₄ + O₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Cu / 523K / 100 atm</span>
+          <span class="rxn-end">2CH₃OH (Controlled Oxidation)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">4</span>
+          <span class="rxn-start">CH₄ + O₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Mo₂O₃ / Δ</span>
+          <span class="rxn-end">HCHO + H₂O</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0.2);color:var(--alkane)">5</span>
+          <span class="rxn-start">CH₄ + H₂O</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Ni / Δ</span>
+          <span class="rxn-end">CO + 3H₂ (Water Gas)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(88,166,255,0,0.2);color:var(--alkane)">6</span>
+          <span class="rxn-start">C₆H₁₄ (Pyrolysis)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">773K</span>
+          <span class="rxn-end">C₆H₁₂ + H₂ / C₄H₈ + C₂H₆ etc.</span>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ Halogenation Reactivity याद करो:</div>
+          <span class="hl">F₂ > Cl₂ > Br₂ > I₂</span> (Reactivity — F most reactive)<br>
+          <span class="hl">F₂ > Cl₂ > Br₂ > I₂</span> (Selectivity उल्टा — Br most selective)<br>
+          <b>Trick:</b> "Fast kaam karne wale ghalati karte hain" → F fast = less selective
+        </div>
+      </div>
+
+    </div><!-- end grid -->
+  </div>
+</div>
+
+<!-- ==================== ALKENES ==================== -->
+<div class="chapter ch-alkene" id="alkene">
+  <div class="chapter-header">
+    <span class="chapter-icon">🟢</span>
+    <div>
+      <div class="chapter-title" style="color:var(--alkene)">ALKENES (CₙH₂ₙ)</div>
+      <div class="chapter-sub">Electrophilic Addition — Markovnikov's Rule</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <!-- PREPARATION -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alkene)">🏗️ PREPARATION OF ALKENES</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">1</span>
+          <span class="rxn-start">Alcohol (Dehydration)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Conc H₂SO₄ / H⁺ / Δ</span>
+          <span class="rxn-end">Alkene (Saytzeff Major)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">2</span>
+          <span class="rxn-start">R-X (Dehydrohalogenation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">alc. KOH</span>
+          <span class="rxn-end">Alkene (Saytzeff)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">3</span>
+          <span class="rxn-start">Vicinal Dihalide</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Zn / Dehalogenation</span>
+          <span class="rxn-end">Alkene</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">4</span>
+          <span class="rxn-start">Alkyne (Partial Hydrogenation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H₂ / Pd-BaSO₄ / Quinoline (Lindlar)</span>
+          <span class="rxn-end">cis-Alkene</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">5</span>
+          <span class="rxn-start">Alkyne (Birch)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Na + Liq. NH₃</span>
+          <span class="rxn-end">trans-Alkene</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 cis vs trans Trick:</div>
+          <b>Lindlar = L = Low (liquid reagent nahi) = cis</b><br>
+          <b>Na/NH₃ = Birch = trans (Anti addition)</b><br>
+          याद: "Lindlar cis deta, Birch trans deta"
+        </div>
+      </div>
+
+      <!-- CHEMICAL PROPERTIES -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alkene)">⚗️ CHEMICAL PROPERTIES (Addition Reactions)</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">1</span>
+          <span class="rxn-start">Alkene + HX</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Markovnikov</span>
+          <span class="rxn-end">R-CH-CH₃ (X on more substituted C)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">2</span>
+          <span class="rxn-start">Alkene + HBr</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Peroxide (H₂O₂ or PhCOOCOPh)</span>
+          <span class="rxn-end">Anti-Markovnikov (Br on less sub. C)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">3</span>
+          <span class="rxn-start">Alkene + H₂SO₄</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Cold Conc H₂SO₄</span>
+          <span class="rxn-end">Alkyl Hydrogen Sulphate</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">4</span>
+          <span class="rxn-start">Alkene + H₂O</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">dil H₂SO₄ / H₃O⁺</span>
+          <span class="rxn-end">Alcohol (Markovnikov)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">5</span>
+          <span class="rxn-start">Alkene + X₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">CCl₄ (non-polar)</span>
+          <span class="rxn-end">Dihalide (Anti Addition)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">6</span>
+          <span class="rxn-start">Alkene + Br₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">CCl₄</span>
+          <span class="rxn-end">Reddish orange → Colourless (Test for unsaturation)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">7</span>
+          <span class="rxn-start">Alkene + KMnO₄</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Dil. Alk. KMnO₄ (Baeyer's)</span>
+          <span class="rxn-end">Vicinal Diol (syn addition)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(63,185,80,0.2);color:var(--alkene)">8</span>
+          <span class="rxn-start">Alkene + O₃ (Ozonolysis)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">1) O₃+CCl₄/Zn 2) +H₂O 3) +Me₂S</span>
+          <span class="rxn-end">Two carbonyls (C=O + O=C)</span>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ Peroxide Rule याद रखो:</div>
+          <span class="hl">HCl और HI पर peroxide काम नहीं करता!</span><br>
+          Only HBr + Peroxide → Anti-Markovnikov<br>
+          Trick: <b>"HBr hi karta hai, HCl-HI nahi"</b>
+        </div>
+      </div>
+
+      <!-- OZONOLYSIS SPECIAL -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alkene)">🔬 OZONOLYSIS — Products याद करो</div>
+        <table class="rxn-table">
+          <tr><th>Reagent</th><th>Ketone होता है?</th><th>Aldehyde होता है?</th></tr>
+          <tr><td class="catalyst">O₃/CCl₄ + Zn</td><td class="product">Ketone stays ✅</td><td class="product">Aldehyde stays ✅</td></tr>
+          <tr><td class="catalyst">O₃/CCl₄ + Zn + H₂O</td><td class="product">Ketone stays</td><td class="hl">Aldehyde → Acid</td></tr>
+          <tr><td class="catalyst">O₃/CCl₄ + Me₂S (Reductive)</td><td class="product">Ketone stays</td><td class="product">Aldehyde stays</td></tr>
+          <tr><td class="catalyst">Hot KMnO₄/H⁺</td><td class="hl">Ketone → X (nahi bacha)</td><td class="hl">Aldehyde → Acid</td></tr>
+        </table>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Ozonolysis Trick — "KMS":</div>
+          Ketone → stays in all<br>
+          Aldehyde → stays in Zn, converts with H₂O<br>
+          Formaldehyde (HCHO) → CO₂ + H₂O (with oxidizing conditions)
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ALKYNES ==================== -->
+<div class="chapter ch-alkyne" id="alkyne">
+  <div class="chapter-header">
+    <span class="chapter-icon">🟣</span>
+    <div>
+      <div class="chapter-title" style="color:var(--alkyne)">ALKYNES (CₙH₂ₙ₋₂)</div>
+      <div class="chapter-sub">Terminal Alkynes Acidic — sp Carbon</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alkyne)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">1</span>
+          <span class="rxn-start">CaC₂ + H₂O</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">Ca(OH)₂ + CH≡CH (Acetylene)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">2</span>
+          <span class="rxn-start">Mg₂C₃ + H₂O</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">Mg(OH)₂ + CH₃-C≡CH (Propyne)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">3</span>
+          <span class="rxn-start">Vicinal Dihalide</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">① alc. KOH ② NaNH₂</span>
+          <span class="rxn-end">Alkyne</span>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alkyne)">⚗️ CHEMICAL PROPERTIES</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">1</span>
+          <span class="rxn-start">Alkyne + H₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Pd/BaSO₄ (Lindlar)</span>
+          <span class="rxn-end">cis-Alkene → Alkane</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">2</span>
+          <span class="rxn-start">R-C≡CH + 2HX</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Markovnikov (2 steps)</span>
+          <span class="rxn-end">Gem Dihalide (R-C(X₂)-CH₃)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">3</span>
+          <span class="rxn-start">R-C≡CH + H₂O (Kucherov)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">dil H₂SO₄ / HgSO₄</span>
+          <span class="rxn-end">Ketone (Methyl Ketone from terminal)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">4</span>
+          <span class="rxn-start">R-C≡C-H (Acidic)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Na</span>
+          <span class="rxn-end">R-C≡C-Na⁻ + H₂</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">5</span>
+          <span class="rxn-start">R-C≡C-H (Tollens test)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">AgNO₃ + NH₄OH</span>
+          <span class="rxn-end">R-C≡C-Ag (Silvery white ppt)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">6</span>
+          <span class="rxn-start">R-C≡C-H (Cuprous Cl test)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Cu₂Cl₂ / NH₄OH</span>
+          <span class="rxn-end">R-C≡C-Cu (Red ppt)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">7</span>
+          <span class="rxn-start">2CH≡CH (Coupling)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Cu₂Cl₂ / NH₄Cl</span>
+          <span class="rxn-end">CH≡C-CH=CH₂ (Vinyl acetylene)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,168,255,0.2);color:var(--alkyne)">8</span>
+          <span class="rxn-start">3CH≡CH (Cyclic coupling)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">RHT (Red Hot Tube)</span>
+          <span class="rxn-end">Benzene (🔥 important!)</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Acidic Nature याद करो:</div>
+          Alkyne (sp) > Alkene (sp²) > Alkane (sp³)<br>
+          <span class="hl">NaHCO₃ के साथ react नहीं करता</span> (पर NaOH, NaH, Na से करता है)<br>
+          Terminal alkyne = acidic, Internal = not acidic
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== AROMATIC ==================== -->
+<div class="chapter ch-aromatic" id="aromatic">
+  <div class="chapter-header">
+    <span class="chapter-icon">🟠</span>
+    <div>
+      <div class="chapter-title" style="color:var(--aromatic)">AROMATIC HYDROCARBONS (Benzene)</div>
+      <div class="chapter-sub">Electrophilic Substitution Reaction (ESR) — EAS Mechanism</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--aromatic)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">1</span>
+          <span class="rxn-start">3CH≡CH</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">RHT</span>
+          <span class="rxn-end">Benzene (Coupling)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">2</span>
+          <span class="rxn-start">Ph-COOH (Decarboxylation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">NaOH + CaO</span>
+          <span class="rxn-end">Benzene</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">3</span>
+          <span class="rxn-start">Ph-OH (Phenol)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Zn dust / Δ</span>
+          <span class="rxn-end">Benzene</span>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--aromatic)">⚗️ CHEMICAL PROPERTIES (ESR)</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">1</span>
+          <span class="rxn-start">Benzene + X₂ (Halogenation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">X₂ + Fe or FeCl₃ / FeBr₃</span>
+          <span class="rxn-end">Halobenzene + HX</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">2</span>
+          <span class="rxn-start">Benzene (Nitration)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Conc HNO₃ + Conc H₂SO₄ (Mixed acid)</span>
+          <span class="rxn-end">Nitrobenzene</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">3</span>
+          <span class="rxn-start">Benzene (Sulphonation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Fuming H₂SO₄ / Oleum</span>
+          <span class="rxn-end">Benzenesulphonic acid</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">4</span>
+          <span class="rxn-start">Benzene + R-X (FC Alkylation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Anhy AlCl₃</span>
+          <span class="rxn-end">Alkylbenzene + Rearrangement</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">5</span>
+          <span class="rxn-start">Benzene + R-CO-Cl (FC Acylation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Anhy AlCl₃</span>
+          <span class="rxn-end">Ketone (NO rearrangement)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">6</span>
+          <span class="rxn-start">Benzene + H₂ (excess)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Excess H₂ / Ni / HP / HT</span>
+          <span class="rxn-end">Cyclohexane</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">7</span>
+          <span class="rxn-start">Benzene + Cl₂ (excess)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Cl₂ + hν (excess)</span>
+          <span class="rxn-end">C₆H₆Cl₆ = BHC / Gammaxene / Lindane</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,166,87,0.2);color:var(--aromatic)">8</span>
+          <span class="rxn-start">Benzene + O₃</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">O₃ + CCl₄ / Zn</span>
+          <span class="rxn-end">CHO-CHO (Glyoxal)</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 FC Alkylation vs Acylation:</div>
+          <b>Alkylation</b> → Rearrangement होता है (carbocation) + poly-alkylation<br>
+          <b>Acylation</b> → No rearrangement, No poly-acylation ✅<br>
+          Trick: <b>"A(cyl) = Accurate = Rearrangement nahi"</b>
+        </div>
+      </div>
+
+      <!-- DIRECTING EFFECTS -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--aromatic)">📍 DIRECTING EFFECTS</div>
+        <table class="rxn-table">
+          <tr><th>Type</th><th>Position</th><th>Examples</th></tr>
+          <tr>
+            <td><span class="hl-green">+M (Activating)</span></td>
+            <td class="product">ortho + para</td>
+            <td class="reagent">-OH, -NH₂, -OR, -NHR, -NHCOR, -R</td>
+          </tr>
+          <tr>
+            <td><span class="hl-red">-M (Deactivating)</span></td>
+            <td class="hl">meta</td>
+            <td class="reagent">-NO₂, -CN, -CHO, -COOH, -SO₃H, -COR</td>
+          </tr>
+          <tr>
+            <td><span class="hl-orange">Halogens (Special)</span></td>
+            <td class="product">ortho + para</td>
+            <td class="reagent">-F, -Cl, -Br, -I (deactivating but o/p directors)</td>
+          </tr>
+        </table>
+        <div class="trick-box">
+          <div class="trick-title">🧠 याद करने की Trick:</div>
+          <b>"जो +M है वो o/p देता है, जो -M है वो meta देता है"</b><br>
+          Halogens Exception: Deactivating but ortho-para (resonance wins over induction)<br>
+          <span class="hl">Halogens = -I (deactivate) + +M (o/p) → Net = o/p director</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== HALOALKANES ==================== -->
+<div class="chapter ch-halo" id="halo">
+  <div class="chapter-header">
+    <span class="chapter-icon">🟤</span>
+    <div>
+      <div class="chapter-title" style="color:var(--halo)">HALOALKANES & HALOARENES</div>
+      <div class="chapter-sub">SN1 / SN2 / E1 / E2 — Nucleophilic Substitution</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--halo)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(240,136,62,0.2);color:var(--halo)">1</span>
+          <span class="rxn-start">R-OH + HX</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">R-X + H₂O (Rearrangement of C⁺)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(240,136,62,0.2);color:var(--halo)">2</span>
+          <span class="rxn-start">R-OH + SOCl₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Darzen Rxn</span>
+          <span class="rxn-end">R-Cl + SO₂↑ + HCl↑ (Retention)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(240,136,62,0.2);color:var(--halo)">3</span>
+          <span class="rxn-start">R-OH + PX₃</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Red P + X₂</span>
+          <span class="rxn-end">R-X + H₃PO₃ (Inversion)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(240,136,62,0.2);color:var(--halo)">4</span>
+          <span class="rxn-start">R-X + NaI (Finkelstein)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Acetone / DMSO</span>
+          <span class="rxn-end">R-I + NaX (X=Cl,Br)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(240,136,62,0.2);color:var(--halo)">5</span>
+          <span class="rxn-start">R-X + AgF (Swartz)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">AgF</span>
+          <span class="rxn-end">R-F + AgX</span>
+        </div>
+      </div>
+
+      <!-- SN1 vs SN2 -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--halo)">⚡ SN1 vs SN2 — Super Important!</div>
+        <table class="comp-table">
+          <tr>
+            <th style="color:var(--acid)">SN1</th>
+            <th style="color:var(--alkene)">SN2</th>
+          </tr>
+          <tr>
+            <td>Carbocation बनता है</td>
+            <td>No Carbocation</td>
+          </tr>
+          <tr>
+            <td>RDS = C⁺ formation</td>
+            <td>Only Transition State</td>
+          </tr>
+          <tr>
+            <td>Rearrangement ✅</td>
+            <td>No Rearrangement</td>
+          </tr>
+          <tr>
+            <td class="hl">Rate = k[RX]¹ (Order 1)</td>
+            <td class="hl">Rate = k[RX][Nu] (Order 2)</td>
+          </tr>
+          <tr>
+            <td>ROR: 3°>2°>1°</td>
+            <td class="hl">ROR: 1°>2°>3° (Less steric)</td>
+          </tr>
+          <tr>
+            <td>Racemic Mixture (Both retention + inversion)</td>
+            <td class="hl">Walden Inversion (100%)</td>
+          </tr>
+          <tr>
+            <td>Polar Protic (H₂O, ROH, RCOOH)</td>
+            <td>Polar Aprotic (DMSO, DMF, Acetone)</td>
+          </tr>
+          <tr>
+            <td>Weak nucleophile</td>
+            <td>Strong nucleophile</td>
+          </tr>
+        </table>
+        <div class="trick-box">
+          <div class="trick-title">🧠 SN1 vs SN2 Super Trick:</div>
+          <b>SN1 = "1 ka matlab SLOW" — 3° favors (stable C⁺)</b><br>
+          <b>SN2 = "2 ka matlab STRONG Nu" — 1° favors (less steric)</b><br>
+          <span class="hl">CH₂=CH-X (Vinyl) और Ph-X → NSR नहीं देते!</span>
+        </div>
+      </div>
+
+      <!-- NUCLEOPHILIC REACTIONS -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--halo)">🎯 NSR PRODUCTS (R-X + Nu →)</div>
+        <table class="rxn-table">
+          <tr><th>Nucleophile</th><th>Product</th></tr>
+          <tr><td class="reagent">H₂O</td><td class="product">R-OH (Alcohol)</td></tr>
+          <tr><td class="reagent">NH₃</td><td class="product">R-NH₂ → R-NH-R → R₃N</td></tr>
+          <tr><td class="reagent">KCN</td><td class="product">R-CN (Nitrile — C chain ↑)</td></tr>
+          <tr><td class="reagent">AgCN</td><td class="product">R-NC (Isonitrile)</td></tr>
+          <tr><td class="reagent">KNO₂</td><td class="product">R-O-N=O (Nitrite ester)</td></tr>
+          <tr><td class="reagent">AgNO₂</td><td class="product">R-NO₂ (Nitroalkane)</td></tr>
+          <tr><td class="reagent">NaOH/H₂O</td><td class="product">R-OH</td></tr>
+          <tr><td class="reagent">alc. KOH</td><td class="product">Alkene (Elimination)</td></tr>
+        </table>
+        <div class="trick-box">
+          <div class="trick-title">🧠 KCN vs AgCN Trick:</div>
+          <b>K(CN) = K-ey = Carbon attach होता = R-CN (Nitrile)</b><br>
+          <b>Ag(CN) = Ag ambiguous = N attach = R-NC (Isocyanide)</b><br>
+          याद: K से carbon, Ag से nitrogen
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ALCOHOL ==================== -->
+<div class="chapter ch-alcohol" id="alcohol">
+  <div class="chapter-header">
+    <span class="chapter-icon">🔴</span>
+    <div>
+      <div class="chapter-title" style="color:var(--alcohol)">ALCOHOLS</div>
+      <div class="chapter-sub">1°, 2°, 3° — Lucas Test, Oxidation, Dehydration</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alcohol)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">1</span>
+          <span class="rxn-start">Alkene + H₂O</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">dil H₂SO₄ / H₃O⁺ (Acid catalyzed)</span>
+          <span class="rxn-end">Alcohol (Markovnikov)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">2</span>
+          <span class="rxn-start">Alkene + BH₃ (HBC)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">B₂H₆/THF → H₂O₂/OH⁻</span>
+          <span class="rxn-end">Anti-Markovnikov Alcohol (syn)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">3</span>
+          <span class="rxn-start">Alkene + OMDM</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Hg(OAc)₂/H₂O → NaBH₄</span>
+          <span class="rxn-end">Markovnikov Alcohol (anti)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">4</span>
+          <span class="rxn-start">Carbonyl + H₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">LiAlH₄ (LAH) or NaBH₄</span>
+          <span class="rxn-end">Alcohol (Reduction)</span>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--alcohol)">⚗️ CHEMICAL PROPERTIES</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">1</span>
+          <span class="rxn-start">R-OH + Na/Δ</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">RO⁻Na⁺ + ½H₂ (Acidic nature)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">2</span>
+          <span class="rxn-start">1° R-OH + MOA</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">PCC/PDC/CrO₃+Py</span>
+          <span class="rxn-end">Aldehyde (RCHO)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">3</span>
+          <span class="rxn-start">2° R-OH + MOA</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">PCC/PDC/CrO₃+Py</span>
+          <span class="rxn-end">Ketone</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">4</span>
+          <span class="rxn-start">1° R-OH + SOA</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">KMnO₄ / K₂Cr₂O₇ / Jones</span>
+          <span class="rxn-end">Carboxylic Acid</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">5</span>
+          <span class="rxn-start">3° R-OH + SOA</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">No oxidation (X)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">6</span>
+          <span class="rxn-start">R-OH + R'OH (Esterification)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H⁺ / Conc H₂SO₄</span>
+          <span class="rxn-end">Ester + H₂O</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">7</span>
+          <span class="rxn-start">1° R-OH (Dehydration)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Conc H₂SO₄ / 413K</span>
+          <span class="rxn-end">Ether (Intermolecular)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--alcohol)">8</span>
+          <span class="rxn-start">Any Alcohol (Dehydration)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Conc H₂SO₄ / 443K</span>
+          <span class="rxn-end">Alkene (Saytzeff)</span>
+        </div>
+
+        <div class="info-box">
+          <div class="info-title">🧪 LUCAS TEST (1°, 2°, 3° distinguish):</div>
+          Reagent: Conc HCl + Anhy ZnCl₂<br>
+          <b>1° alcohol</b> → No turbidity (takes long time)<br>
+          <b>2° alcohol</b> → Turbidity in <span class="hl">minutes</span><br>
+          <b>3° alcohol</b> → Turbidity in <span class="hl">seconds</span> ✅<br>
+          Trick: <b>"3° = 3 second mein turbid!"</b>
+        </div>
+
+        <div class="trick-box">
+          <div class="trick-title">🧠 MOA vs SOA Oxidizing Agents:</div>
+          <b>MOA (Mild Oxidizing Agent)</b> — stops at aldehyde: PCC, PDC, CrO₃+Pyridine, MnO₂ (allylic/benzylic), Cu/Ag at 300°C<br>
+          <b>SOA (Strong Oxidizing Agent)</b> — goes to acid: KMnO₄, K₂Cr₂O₇, Na₂Cr₂O₇, CrO₃/H₂SO₄ (Jones), Conc HNO₃
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PHENOL ==================== -->
+<div class="chapter ch-alcohol" id="phenol">
+  <div class="chapter-header">
+    <span class="chapter-icon">🌸</span>
+    <div>
+      <div class="chapter-title" style="color:#ff6b6b">PHENOL</div>
+      <div class="chapter-sub">More acidic than alcohol — Resonance stabilized phenoxide</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+      <div class="section-card">
+        <div class="section-title" style="color:#ff6b6b">🧪 TESTS FOR PHENOL</div>
+        <table class="rxn-table">
+          <tr><th>Test</th><th>Reagent</th><th>Result</th></tr>
+          <tr><td class="hl">FeCl₃ Test</td><td class="reagent">FeCl₃</td><td class="product">Violet/Blue-Purple color</td></tr>
+          <tr><td class="hl">Libermann Nitroso</td><td class="reagent">NaNO₂ + H₂SO₄</td><td class="product">Brown Red → Indophenol (Blue-Green)</td></tr>
+          <tr><td class="hl">Bromine Water</td><td class="reagent">Br₂/H₂O</td><td class="product">White ppt (2,4,6-tribromophenol)</td></tr>
+          <tr><td class="hl">Phenolphthalein</td><td class="reagent">phOH + Base</td><td class="product">Reddish Pink</td></tr>
+        </table>
+      </div>
+      <div class="section-card">
+        <div class="section-title" style="color:#ff6b6b">⚗️ PHENOL REACTIONS</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,107,107,0.2);color:#ff6b6b">1</span>
+          <span class="rxn-start">PhOH + NaOH</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">CO₂, H⁺ (Kolbe's)</span>
+          <span class="rxn-end">Salicylic acid (ortho major in NaOH)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,107,107,0.2);color:#ff6b6b">2</span>
+          <span class="rxn-start">PhOH + CHCl₃/KOH (Reimer-Tiemann)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">KOH</span>
+          <span class="rxn-end">Salicylaldehyde (ortho major)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,107,107,0.2);color:#ff6b6b">3</span>
+          <span class="rxn-start">PhOH + Na₂Cr₂O₇/H₂SO₄</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Oxidation</span>
+          <span class="rxn-end">p-Benzoquinone</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(255,107,107,0.2);color:#ff6b6b">4</span>
+          <span class="rxn-start">PhOH + Zn dust</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">Ph-H + ZnO (Benzene)</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Kolbe's Reaction Trick:</div>
+          <b>NaOH</b> → Ortho product (Aspirin precursor: Salicylic acid)<br>
+          <b>KOH</b> → Para product<br>
+          Trick: <b>"Na = ortho, K = para"</b>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ETHER ==================== -->
+<div class="chapter ch-ether" id="ether">
+  <div class="chapter-header">
+    <span class="chapter-icon">🟣</span>
+    <div>
+      <div class="chapter-title" style="color:var(--ether)">ETHERS (R-O-R')</div>
+      <div class="chapter-sub">Williamson Synthesis — Electrophilic Substitution</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+      <div class="section-card">
+        <div class="section-title" style="color:var(--ether)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(188,140,255,0.2);color:var(--ether)">1</span>
+          <span class="rxn-start">1° R-OH (Dehydration)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Conc H₂SO₄ / 413K</span>
+          <span class="rxn-end">R-O-R (Ether)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(188,140,255,0.2);color:var(--ether)">2</span>
+          <span class="rxn-start">1° R-X + R'-ONa (Williamson)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">SN2</span>
+          <span class="rxn-end">R-O-R' + NaX</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(188,140,255,0.2);color:var(--ether)">3</span>
+          <span class="rxn-start">2R-X + Ag₂O (dry)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">R-O-R (Ether)</span>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ Williamson Synthesis Exception:</div>
+          <span class="hl">2° और 3° R-X → Alkene (Elimination) देता है, Ether नहीं!</span><br>
+          Ph-X, CH₂=CH-X भी Williamson नहीं देते
+        </div>
+      </div>
+      <div class="section-card">
+        <div class="section-title" style="color:var(--ether)">⚗️ CHEMICAL PROPERTIES</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(188,140,255,0.2);color:var(--ether)">1</span>
+          <span class="rxn-start">R-O-R' + HX (excess)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Excess HX</span>
+          <span class="rxn-end">R-I + R'-I (Two halides)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(188,140,255,0.2);color:var(--ether)">2</span>
+          <span class="rxn-start">R-O-R' + HX (HI > HBr > HCl)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">More stable C⁺</span>
+          <span class="rxn-end">R-X + R'-OH</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(188,140,255,0.2);color:var(--ether)">3</span>
+          <span class="rxn-start">Anisole + Cl₂ (ESR)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Br₂ / CH₃COOH or CS₂</span>
+          <span class="rxn-end">Ortho + Para product (OCH₃ = o/p director)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(188,140,255,0.2);color:var(--ether)">4</span>
+          <span class="rxn-start">Anisole + PCl₅</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">R-Cl + R'-Cl + POCl₃</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ALDEHYDE & KETONE ==================== -->
+<div class="chapter ch-aldket" id="aldket">
+  <div class="chapter-header">
+    <span class="chapter-icon">🔵</span>
+    <div>
+      <div class="chapter-title" style="color:var(--aldehyde)">ALDEHYDES & KETONES</div>
+      <div class="chapter-sub">Nucleophilic Addition (NAR) — Carbonyl Group Reactions</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--aldehyde)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">1</span>
+          <span class="rxn-start">1° Alcohol + MOA</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">PCC / PDC / Cu-Ag 300°C</span>
+          <span class="rxn-end">Aldehyde (RCHO)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">2</span>
+          <span class="rxn-start">2° Alcohol + MOA</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">PCC / PDC</span>
+          <span class="rxn-end">Ketone</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">3</span>
+          <span class="rxn-start">Alkyne + H₂O (Kucherov)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Hg²⁺ / H₂SO₄</span>
+          <span class="rxn-end">Ketone (terminal alkyne)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">4</span>
+          <span class="rxn-start">R-C≡N + DIBAL-H (Aldehyde)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">1) DIBALH 2) H₂O</span>
+          <span class="rxn-end">Aldehyde (RCHO)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">5</span>
+          <span class="rxn-start">R-COCl + H₂ (Rosenmund)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H₂ + Pd/BaSO₄</span>
+          <span class="rxn-end">Aldehyde (RCHO)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">6</span>
+          <span class="rxn-start">R-CN + Sn/HCl (Stephens)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">1) Sn + HCl 2) H₂O</span>
+          <span class="rxn-end">Aldehyde</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">7</span>
+          <span class="rxn-start">R'-C≡N + RMgCl (Ketone)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">1) RMgCl 2) H₃O⁺</span>
+          <span class="rxn-end">Ketone (R'COR)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">8</span>
+          <span class="rxn-start">R'-COCl + R₂Cd (Ketone)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Cadmium reagent</span>
+          <span class="rxn-end">Ketone</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">9</span>
+          <span class="rxn-start">Benzene + CO+HCl (Gattermann Koch)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Anhy AlCl₃</span>
+          <span class="rxn-end">Benzaldehyde (CHO)</span>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--aldehyde)">⚗️ CHEMICAL PROPERTIES (NAR)</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">1</span>
+          <span class="rxn-start">C=O + HCN</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">NaCN/H₂O or HCN</span>
+          <span class="rxn-end">Cyanohydrin (α-hydroxy nitrile)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">2</span>
+          <span class="rxn-start">C=O + NaHSO₃</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">Bisulphite adduct (All Ald + Methyl ketone only)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">3</span>
+          <span class="rxn-start">C=O + ROH</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H⁺</span>
+          <span class="rxn-end">Hemiacetal → Acetal (2 ROH)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">4</span>
+          <span class="rxn-start">C=O + NH₂-Z</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">C=N-Z (Imine/Schiff's/Oxime/Hydrazone)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">5</span>
+          <span class="rxn-start">C=O + LAH</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">LiAlH₄ → H₂O</span>
+          <span class="rxn-end">Alcohol (Reduction)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">6</span>
+          <span class="rxn-start">C=O (Clemmensen)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Zn-Hg / Conc HCl</span>
+          <span class="rxn-end">CH₂ (Alkane)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">7</span>
+          <span class="rxn-start">C=O (Wolf-Kishner)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">NH₂NH₂ / KOH / Δ</span>
+          <span class="rxn-end">CH₂ (Alkane)</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 NAR Reactivity Trick:</div>
+          Aldehyde > Ketone (reactivity in NAR)<br>
+          <b>+M और +I effect = Reactivity ↓</b><br>
+          Order: HCHO > RCHO > Aryl CHO > RCOR > Ar₂CO
+        </div>
+      </div>
+
+      <!-- OXIDATION TESTS -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--aldehyde)">🧪 OXIDATION TESTS (Aldehyde only)</div>
+        <table class="rxn-table">
+          <tr><th>Test</th><th>Reagent</th><th>Positive for</th><th>Result</th></tr>
+          <tr>
+            <td class="hl">Tollens Test</td>
+            <td class="reagent">AgNO₃ + NH₄OH [Ag(NH₃)₂]⁺</td>
+            <td class="product">All Aldehydes (Ali + Aro)</td>
+            <td>Silver Mirror ✅</td>
+          </tr>
+          <tr>
+            <td class="hl">Fehling's Test</td>
+            <td class="reagent">Fehling A (CuSO₄) + B (NaKT)</td>
+            <td class="product">Only Aliphatic Aldehyde</td>
+            <td>Reddish Brown Cu₂O↓</td>
+          </tr>
+          <tr>
+            <td class="hl">Benedict's Test</td>
+            <td class="reagent">aq CuSO₄ + Na Citrate</td>
+            <td class="product">Ali + Aro Aldehyde</td>
+            <td>Reddish Brown Cu₂O↓</td>
+          </tr>
+          <tr>
+            <td class="hl">Haloform Test</td>
+            <td class="reagent">X₂ + NaOH/KOH</td>
+            <td class="product">CH₃CHO + Methyl Ketone + 2° alc. with CH₃</td>
+            <td>CHX₃ (Yellow CHI₃ iodoform)</td>
+          </tr>
+        </table>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Haloform Test Trick:</div>
+          <b>"CH₃-CO-R या CH₃-CHOH-R = Haloform positive"</b><br>
+          Iodoform (CHI₃) = Yellow ppt = Iodoform test<br>
+          Only CH₃CHO (aldehyde) gives haloform, other ald nahi dete!
+        </div>
+      </div>
+
+      <!-- ALDOL CONDENSATION -->
+      <div class="section-card">
+        <div class="section-title" style="color:var(--aldehyde)">🔗 ALDOL & CANNIZZARO REACTIONS</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">1</span>
+          <span class="rxn-start">CH₃CHO + dil. Base (Aldol)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Δ</span>
+          <span class="rxn-end">Crotonaldehyde (CH₃CH=CHCHO)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">2</span>
+          <span class="rxn-start">CH₃COCH₃ (Aldol)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">dil NaOH → Δ</span>
+          <span class="rxn-end">Mesityl oxide (CH₃-C(CH₃)=CH-COCH₃)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">3</span>
+          <span class="rxn-start">HCHO (Cannizzaro)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">50% KOH/NaOH</span>
+          <span class="rxn-end">HCOOK + H-CH₂OH</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(121,192,255,0.2);color:var(--aldehyde)">4</span>
+          <span class="rxn-start">PhCHO + HCHO (Cross Cannizzaro)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">HCOOK + PhCH₂OH (HCHO always oxidized)</span>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ Cannizzaro Condition:</div>
+          <span class="hl">No α-H हो तभी Cannizzaro होता है!</span><br>
+          HCHO, Ph-CHO, (CH₃)₃C-CHO (trimethyl acetaldehyde) = Cannizzaro positive
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CARBOXYLIC ACID ==================== -->
+<div class="chapter ch-acid" id="acid">
+  <div class="chapter-header">
+    <span class="chapter-icon">🔴</span>
+    <div>
+      <div class="chapter-title" style="color:var(--acid)">CARBOXYLIC ACIDS</div>
+      <div class="chapter-sub">HVZ Reaction, Hell-Volhard-Zelinsky — α-halogenation</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--acid)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">1</span>
+          <span class="rxn-start">1° Alcohol / Aldehyde</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">KMnO₄/H⁺ / CrO₃/H₂SO₄ / Conc HNO₃</span>
+          <span class="rxn-end">Carboxylic Acid</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">2</span>
+          <span class="rxn-start">Alkylbenzene</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">alk. KMnO₄ / Δ → H₃O⁺</span>
+          <span class="rxn-end">Benzoic acid</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">3</span>
+          <span class="rxn-start">R-CN (Hydrolysis)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H₃O⁺ (complete)</span>
+          <span class="rxn-end">R-COOH (Carboxylic acid)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">4</span>
+          <span class="rxn-start">R-CN (Partial Hydrolysis)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H₃O⁺ (partial)</span>
+          <span class="rxn-end">R-CONH₂ (Amide)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">5</span>
+          <span class="rxn-start">RMgX + CO₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">1) CO₂ 2) H₃O⁺</span>
+          <span class="rxn-end">R-COOH</span>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--acid)">⚗️ CHEMICAL PROPERTIES</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">1</span>
+          <span class="rxn-start">RCOOH + R'OH (Esterification)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H⁺</span>
+          <span class="rxn-end">RCOOR' + H₂O</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">2</span>
+          <span class="rxn-start">RCOOH + PCl₃/SOCl₂</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">R-CO-Cl (Acyl Chloride)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">3</span>
+          <span class="rxn-start">2 RCOOH (Anhydride)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">P₂O₅ / Conc H₂SO₄</span>
+          <span class="rxn-end">R-CO-O-CO-R (Anhydride)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">4</span>
+          <span class="rxn-start">RCOOH + NH₃</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Δ</span>
+          <span class="rxn-end">R-CO-NH₂ (Amide)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">5</span>
+          <span class="rxn-start">RCOOH + LAH</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">1) LAH 2) H₂O</span>
+          <span class="rxn-end">R-CH₂OH (1° Alcohol)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">6</span>
+          <span class="rxn-start">RCOOH (Decarboxylation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Soda lime / NaOH+CaO</span>
+          <span class="rxn-end">R-H (Alkane)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(248,81,73,0.2);color:var(--acid)">7</span>
+          <span class="rxn-start">R-CH₂-COOH + Red P + X₂ (HVZ)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">① Red P + X₂ ② H₂O</span>
+          <span class="rxn-end">R-CHX-COOH (α-halogenation)</span>
+        </div>
+        <div class="info-box">
+          <div class="info-title">📊 Acidic Strength Order:</div>
+          Acidic strength ∝ -M, -I effect and inversely ∝ +M, +I<br>
+          <span class="hl">F > Cl > Br > I</span> (halogenated acids — F most acidic)<br>
+          <span class="hl">HCOOH > CH₃COOH</span> (formic acid > acetic acid)<br>
+          Benzoic acid < chlorobenzoic acid (o/p) < meta<br>
+          Trick: <b>Electron withdrawing groups = more acidic</b>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== AMINES ==================== -->
+<div class="chapter ch-amine" id="amine">
+  <div class="chapter-header">
+    <span class="chapter-icon">🟡</span>
+    <div>
+      <div class="chapter-title" style="color:var(--amine)">AMINES</div>
+      <div class="chapter-sub">Basicity — Diazonium Salt — Carbylamine Test</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--amine)">🏗️ PREPARATION</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">1</span>
+          <span class="rxn-start">R-NO₂ (Reduction)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Sn+HCl / Fe+HCl / H₂+Ni</span>
+          <span class="rxn-end">R-NH₂ (Primary Amine)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">2</span>
+          <span class="rxn-start">R-CN (Reduction)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">H₂+Ni / Na(Hg)+ROH / LiAlH₄</span>
+          <span class="rxn-end">R-CH₂-NH₂</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">3</span>
+          <span class="rxn-start">NH₃ + R-X (Ammonolysis)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">SN2</span>
+          <span class="rxn-end">R-NH₂ → R₂NH → R₃N → R₄N⁺X⁻</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">4</span>
+          <span class="rxn-start">R-CONH₂ (Hoffman degradation)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Br₂ / 4NaOH</span>
+          <span class="rxn-end">R-NH₂ (1 carbon कम!)</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">5</span>
+          <span class="rxn-start">Gabriel Phthalimide</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">① NaOH/KOH ② R-X ③ NaOH(aq)</span>
+          <span class="rxn-end">1° Aliphatic Amine only</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Hoffman Degradation Trick:</div>
+          <b>RCONH₂ → RNH₂ (carbon 1 kum ho jaata hai!)</b><br>
+          Br₂ + 4NaOH (4NaOH = important!)<br>
+          Stereochemistry remains same (retention)
+        </div>
+      </div>
+
+      <div class="section-card">
+        <div class="section-title" style="color:var(--amine)">⚗️ CHEMICAL PROPERTIES + BASICITY</div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">1</span>
+          <span class="rxn-start">R-NH₂ + CHCl₃/KOH (Carbylamine)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">R-NC (Isocyanide, foul smell) — 1° amine test</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">2</span>
+          <span class="rxn-start">R-NH₂ + PhSO₂Cl (Hinsberg)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">Sulfonamide (Soluble in alkali) = 1° amine</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">3</span>
+          <span class="rxn-start">R₂NH + PhSO₂Cl (Hinsberg)</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">Insoluble sulfonamide = 2° amine</span>
+        </div>
+        <div class="rxn-line">
+          <span class="num-badge" style="background:rgba(210,153,34,0.2);color:var(--amine)">4</span>
+          <span class="rxn-start">R₃N + PhSO₂Cl</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">—</span>
+          <span class="rxn-end">No Reaction = 3° amine</span>
+        </div>
+
+        <div class="info-box">
+          <div class="info-title">📊 BASICITY ORDER याद करो:</div>
+          <b>Gas Phase:</b> 3° > 2° > 1° > NH₃<br>
+          <b>Aqueous Phase (R=Me):</b> 2° > 3° > 1° > NH₃<br>
+          <b>Aqueous Phase (R=Et):</b> 2° > 1° > 3° > NH₃<br>
+          <b>Aromatic Amines:</b> Aliphatic >> Aromatic<br>
+          <span class="hl">SIP: Basicity decreases — 1° aromatic: m > p > o</span><br>
+          <span class="hl">SIR: Basicity increases — 2°,3° aromatic: o > m > p</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Basicity Trick:</div>
+          <b>Aromatic amine < Aliphatic amine</b> (lone pair delocalized in ring)<br>
+          <b>Aniline does NOT give FCR (Friedel Craft)</b> — forms complex with AlCl₃
+        </div>
+      </div>
+
+      <!-- DIAZONIUM SALT -->
+      <div class="section-card full-width">
+        <div class="section-title" style="color:var(--amine)">💎 DIAZONIUM SALT (PhN₂⁺Cl⁻) — Very Important!</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.8rem;margin-top:0.5rem">
+          <div>
+            <div style="color:var(--muted);font-size:0.78rem;font-family:'Baloo 2',cursive;margin-bottom:0.4rem">📤 SANDMEYER REACTION (Cu₂X₂)</div>
+            <div class="rxn-line"><span class="rxn-cond">Cu₂Cl₂ + HCl</span><span class="arrow">→</span><span class="rxn-end">ph-Cl</span></div>
+            <div class="rxn-line"><span class="rxn-cond">Cu₂Br₂ + HBr</span><span class="arrow">→</span><span class="rxn-end">ph-Br</span></div>
+            <div class="rxn-line"><span class="rxn-cond">CuCN / KCN</span><span class="arrow">→</span><span class="rxn-end">ph-CN</span></div>
+          </div>
+          <div>
+            <div style="color:var(--muted);font-size:0.78rem;font-family:'Baloo 2',cursive;margin-bottom:0.4rem">📤 GATTERMANN REACTION (Cu)</div>
+            <div class="rxn-line"><span class="rxn-cond">Cu + HCl</span><span class="arrow">→</span><span class="rxn-end">ph-Cl</span></div>
+            <div class="rxn-line"><span class="rxn-cond">Cu + HBr</span><span class="arrow">→</span><span class="rxn-end">ph-Br</span></div>
+          </div>
+          <div>
+            <div style="color:var(--muted);font-size:0.78rem;font-family:'Baloo 2',cursive;margin-bottom:0.4rem">📤 OTHER REACTIONS</div>
+            <div class="rxn-line"><span class="rxn-cond">KI (Sizzi)</span><span class="arrow">→</span><span class="rxn-end">ph-I</span></div>
+            <div class="rxn-line"><span class="rxn-cond">HBF₄ → Δ (Balz-Schiemann)</span><span class="arrow">→</span><span class="rxn-end">ph-F + BF₃ + N₂</span></div>
+            <div class="rxn-line"><span class="rxn-cond">H₃PO₂ (Reduction)</span><span class="arrow">→</span><span class="rxn-end">ph-H + H₃PO₃</span></div>
+            <div class="rxn-line"><span class="rxn-cond">H₂O / 283K</span><span class="arrow">→</span><span class="rxn-end">ph-OH (Phenol)</span></div>
+            <div class="rxn-line"><span class="rxn-cond">NaNO₂ + Cu/Δ</span><span class="arrow">→</span><span class="rxn-end">ph-NO₂ (Nitrobenzene)</span></div>
+          </div>
+          <div>
+            <div style="color:var(--muted);font-size:0.78rem;font-family:'Baloo 2',cursive;margin-bottom:0.4rem">💛 COUPLING REACTIONS</div>
+            <div class="rxn-line"><span class="rxn-start">PhN₂⁺ + Aniline (ESR)</span><span class="arrow">→</span><span class="rxn-end">p-Amino Azobenzene (Yellow dye)</span></div>
+            <div class="rxn-line"><span class="rxn-start">PhN₂⁺ + Phenol (ESR)</span><span class="arrow">→</span><span class="rxn-end">p-Hydroxy Azobenzene (Orange dye)</span></div>
+          </div>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Diazonium Salt Memory — "SGS-KBH":</div>
+          <b>S</b>andmeyer = Cu₂X₂ (Cu₂Cl₂, Cu₂Br₂, CuCN)<br>
+          <b>G</b>attermann = Cu metal (Cu+HCl, Cu+HBr)<br>
+          <b>S</b>izzi = KI → ph-I<br>
+          <b>K</b>olbe = Reduction H₃PO₂ → ph-H<br>
+          <b>B</b>alz-Schiemann = HBF₄ → ph-F<br>
+          <b>H</b>₂O = Phenol formation
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== GRIGNARD ==================== -->
+<div class="chapter ch-ether" id="grignard">
+  <div class="chapter-header">
+    <span class="chapter-icon">🔮</span>
+    <div>
+      <div class="chapter-title" style="color:var(--ether)">GRIGNARD REAGENT (RMgX)</div>
+      <div class="chapter-sub">Dry Ether — Most Versatile Reagent in Organic Chemistry</div>
+    </div>
+  </div>
+  <div class="chapter-body">
+    <div class="section-grid">
+      <div class="section-card">
+        <div class="section-title" style="color:var(--ether)">🎯 NAER (Nucleophilic Addition Reactions)</div>
+        <table class="rxn-table">
+          <tr><th>With</th><th>Product</th></tr>
+          <tr><td class="reagent">HCHO</td><td class="product">1° Alcohol</td></tr>
+          <tr><td class="reagent">RCHO</td><td class="product">2° Alcohol</td></tr>
+          <tr><td class="reagent">R-CO-R (Ketone)</td><td class="product">3° Alcohol</td></tr>
+          <tr><td class="reagent">CO₂ → H⁺</td><td class="product">Carboxylic Acid</td></tr>
+          <tr><td class="reagent">SO₃ → H⁺</td><td class="product">Sulphonic Acid (R-SO₃H)</td></tr>
+          <tr><td class="reagent">H⁺ (Zerewitnoff's)</td><td class="product">R-H (Alkane)</td></tr>
+          <tr><td class="reagent">R-CN</td><td class="product">Ketone (via Imine)</td></tr>
+          <tr><td class="reagent">R'-X (NSR)</td><td class="product">R-R' (Coupling)</td></tr>
+          <tr><td class="reagent">O₂</td><td class="product">R-OH</td></tr>
+          <tr><td class="reagent">S</td><td class="product">RSH (Thiol)</td></tr>
+        </table>
+        <div class="warn-box">
+          <div class="warn-title">⚠️ NAER Reactivity Order:</div>
+          R-CO-Cl > R-CO-OCOR > H₂C=O(HCHO) > RCHO > R₂C=O > RCOOR > RCOOH<br>
+          <span class="hl">Grignard ke saath active H wale compounds react karte hain (Na wale)</span><br>
+          Active H: -OH, -NH, ≡C-H, -COOH etc.
+        </div>
+      </div>
+      <div class="section-card">
+        <div class="section-title" style="color:var(--ether)">🏗️ PREPARATION & CONDITIONS</div>
+        <div class="rxn-line">
+          <span class="rxn-start">R-X + Mg</span>
+          <span class="arrow">→</span>
+          <span class="rxn-cond">Dry Ether</span>
+          <span class="rxn-end">R-Mg-X (Grignard)</span>
+        </div>
+        <div class="trick-box">
+          <div class="trick-title">🧠 Grignard Tricks:</div>
+          ROR for Grignard: I > Br > Cl > F<br>
+          <b>Dry ether is MUST</b> (moisture destroys it)<br>
+          <b>HCHO → 1°, RCHO → 2°, Ketone → 3°</b><br>
+          याद: "H देता है 1°, R देता है 2°, दोनों R देते हैं 3°"<br>
+          Cyclic ether (epoxide) → R on less hindered C (anti addition)
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MEMORY TRICKS MASTER ==================== -->
+<div class="memory-section" id="tricks">
+  <h3>🧠 MASTER MEMORY TRICKS — NEET ke liye sabse zaroori!</h3>
+  <div class="section-grid">
+
+    <div class="section-card">
+      <div class="section-title" style="color:var(--trick)">⚡ CATALYST MEMORY — Kahan kya use hota hai?</div>
+      <table class="rxn-table">
+        <tr><th>Reaction</th><th>Catalyst</th><th>Trick</th></tr>
+        <tr><td>Hydrogenation</td><td class="catalyst">Ni/Pt/Pd</td><td class="hl">NPP = "Nice Platinum Palladium"</td></tr>
+        <tr><td>Lindlar (cis alkene)</td><td class="catalyst">Pd/BaSO₄ + Quinoline</td><td class="hl">L=Lindlar=Lazy=cis</td></tr>
+        <tr><td>Birch (trans)</td><td class="catalyst">Na + Liq. NH₃</td><td class="hl">B=Birch=Bold=trans</td></tr>
+        <tr><td>Kucherov</td><td class="catalyst">HgSO₄ + H₂SO₄</td><td class="hl">Hg = heavy metal</td></tr>
+        <tr><td>Halogenation (ESR)</td><td class="catalyst">FeCl₃ / FeBr₃ / AlCl₃</td><td class="hl">Lewis acid = Fe or Al</td></tr>
+        <tr><td>Friedel Craft</td><td class="catalyst">Anhy. AlCl₃</td><td class="hl">FC = Full AlCl₃</td></tr>
+        <tr><td>Nitration</td><td class="catalyst">Conc HNO₃ + Conc H₂SO₄</td><td class="hl">Mixed acid</td></tr>
+        <tr><td>Sulphonation</td><td class="catalyst">Fuming H₂SO₄ / Oleum</td><td class="hl">Fuming = SO₃</td></tr>
+        <tr><td>Clemmensen Red.</td><td class="catalyst">Zn-Hg + Conc HCl</td><td class="hl">Zinc mercury = C removal</td></tr>
+        <tr><td>Wolf-Kishner Red.</td><td class="catalyst">NH₂NH₂ + KOH</td><td class="hl">Hydrazine + Base</td></tr>
+        <tr><td>Rosenmund Red.</td><td class="catalyst">H₂ + Pd/BaSO₄</td><td class="hl">Same as Lindlar!</td></tr>
+        <tr><td>Controlled Oxidation CH₄</td><td class="catalyst">Cu / 523K / 100 atm</td><td class="hl">Copper catalyst</td></tr>
+      </table>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title" style="color:var(--trick)">🎯 SAME REAGENT — DIFFERENT REACTIONS</div>
+      <div class="info-box">
+        <div class="info-title">Zn-Hg / Conc HCl:</div>
+        Clemmensen Reduction: C=O → CH₂ (ketone/aldehyde → alkane)
+      </div>
+      <div class="info-box">
+        <div class="info-title">NH₂NH₂ / KOH:</div>
+        Wolf-Kishner: C=O → CH₂
+      </div>
+      <div class="info-box" style="background:rgba(63,185,80,0.08);border-color:rgba(63,185,80,0.3)">
+        <div class="info-title" style="color:var(--alkene)">H₂ + Pd/BaSO₄:</div>
+        Lindlar = Alkyne → cis-Alkene<br>
+        Rosenmund = Acyl Chloride → Aldehyde
+      </div>
+      <div class="info-box" style="background:rgba(210,168,255,0.08);border-color:rgba(210,168,255,0.3)">
+        <div class="info-title" style="color:var(--alkyne)">alc. KOH:</div>
+        Dehydrohalogenation: R-X → Alkene (Saytzeff rule)
+      </div>
+      <div class="info-box" style="background:rgba(255,166,87,0.08);border-color:rgba(255,166,87,0.3)">
+        <div class="info-title" style="color:var(--aromatic)">NaOH + CaO (Soda Lime):</div>
+        Decarboxylation: RCOOH → RH<br>
+        Used for both aliphatic and aromatic
+      </div>
+      <div class="info-box" style="background:rgba(248,81,73,0.08);border-color:rgba(248,81,73,0.3)">
+        <div class="info-title" style="color:var(--acid)">KMnO₄ / K₂Cr₂O₇:</div>
+        Strong oxidizing agent → Carboxylic acid from alkylbenzene<br>
+        Baeyer's Reagent (dil. KMnO₄) → Vicinal diol
+      </div>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title" style="color:var(--trick)">📊 REACTIVITY ORDERS (Exam ke liye)</div>
+      <table class="rxn-table">
+        <tr><th>Parameter</th><th>Order</th></tr>
+        <tr><td class="hl">Halogen Reactivity</td><td class="product">F₂ > Cl₂ > Br₂ > I₂</td></tr>
+        <tr><td class="hl">Halogen Selectivity</td><td class="product">I₂ > Br₂ > Cl₂ > F₂</td></tr>
+        <tr><td class="hl">HX Reactivity (Markovnikov)</td><td class="product">HI > HBr > HCl</td></tr>
+        <tr><td class="hl">Leaving ability</td><td class="product">I⁻ > Br⁻ > Cl⁻ > F⁻</td></tr>
+        <tr><td class="hl">C⁺ Stability (SN1)</td><td class="product">3° > 2° > 1° > CH₃</td></tr>
+        <tr><td class="hl">SN2 Rate</td><td class="product">1° > 2° > 3°</td></tr>
+        <tr><td class="hl">Alcohol Dehydration</td><td class="product">3° > 2° > 1°</td></tr>
+        <tr><td class="hl">Aldehyde/Ketone (NAR)</td><td class="product">HCHO > RCHO > Ar CHO > RCOR</td></tr>
+        <tr><td class="hl">Amine Basicity (Gas)</td><td class="product">3° > 2° > 1° > NH₃</td></tr>
+        <tr><td class="hl">Acidic Strength (Alkyne)</td><td class="product">RC≡CH > R₂C=CH₂ > RCH₃</td></tr>
+        <tr><td class="hl">Carboxylic Acid (halogen)</td><td class="product">F > Cl > Br > I</td></tr>
+        <tr><td class="hl">Grignard (Halide)</td><td class="product">I > Br > Cl > F</td></tr>
+      </table>
+    </div>
+
+    <div class="section-card">
+      <div class="section-title" style="color:var(--trick)">🧪 COLOR REACTIONS (NEET Favorites)</div>
+      <table class="rxn-table">
+        <tr><th>Compound / Test</th><th>Color</th></tr>
+        <tr><td class="hl">Tollens Test (Silver Mirror)</td><td><span style="color:silver">Silver Mirror ✨</span></td></tr>
+        <tr><td class="hl">Fehling's / Benedict's</td><td><span style="color:#cd7f32">Reddish Brown Cu₂O↓</span></td></tr>
+        <tr><td class="hl">Iodoform Test</td><td><span style="color:#d4c000">Yellow CHI₃ ppt</span></td></tr>
+        <tr><td class="hl">FeCl₃ + Phenol</td><td><span style="color:#8b00ff">Violet/Purple</span></td></tr>
+        <tr><td class="hl">Br₂/CCl₄ + Alkene</td><td><span style="color:#ff6b00">Orange → Colourless</span></td></tr>
+        <tr><td class="hl">Br₂/H₂O + Phenol</td><td>White ppt (Tribromophenol)</td></tr>
+        <tr><td class="hl">Libermann (Nitroso)</td><td><span style="color:#8B4513">Brown Red → Blue-Green</span></td></tr>
+        <tr><td class="hl">Diazonium + Aniline</td><td><span style="color:#FFD700">Yellow dye</span></td></tr>
+        <tr><td class="hl">Diazonium + Phenol</td><td><span style="color:#FF8C00">Orange dye</span></td></tr>
+        <tr><td class="hl">Tollens + Terminal Alkyne</td><td>White/Silvery ppt (R-C≡C-Ag)</td></tr>
+        <tr><td class="hl">Cuprous Cl + Terminal Alkyne</td><td><span style="color:#cc0000">Red ppt (R-C≡C-Cu)</span></td></tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  ⚗️ Complete Organic Chemistry NEET Notes — सभी reactions covered | 100% Notes Coverage<br>
+  <span style="color:var(--trick)">🧠 Read the color legend — Reagent (blue), Catalyst (orange), Product (green), Trick (bright green)</span><br>
+  <small style="color:var(--muted)">Best of luck for NEET! — याद रखो: Practice > Memorize</small>
+</div>
+
+</div><!-- container -->
+
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
