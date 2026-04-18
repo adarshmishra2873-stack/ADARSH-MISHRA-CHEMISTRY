@@ -6,14 +6,6 @@
 <title>🔬 Organic Chemistry - Complete NEET Notes</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Hind:wght@300;400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-          .header-content { display: flex; align-items: center; justify-content: center; position: relative; max-width: 1600px; margin: 0 auto; }
-        .creator-attribution { display: flex; align-items: center; gap: 15px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); padding: 10px 15px; background-color: rgba(255, 255, 255, 0.15); border-radius: 50px; border: 2px solid rgba(255, 255, 255, 0.2); }
-        .creator-photo { width: 75px; height: 75px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, 0.8); object-fit: cover; }
-        .creator-info { display: flex; flex-direction: column; text-align: left; color: white; }
-        .created-by { font-size: 0.9em; opacity: 0.8; }
-        .creator-name { font-size: 1.3em; font-weight: 700; margin-bottom: 3px; }
-        .creator-tag { font-size: 0.8em; opacity: 0.9; font-style: italic; }
-        @media (max-width: 1024px) { .header-content { flex-direction: column; gap: 20px; } .creator-attribution { position: static; transform: none; margin-top: 15px; } }
   :root {
     --bg: #0d1117;
     --bg2: #161b22;
@@ -37,9 +29,27 @@
     --reagent: #58a6ff;
     --product: #3fb950;
     --catalyst: #ffa657;
-    --glow-blue: rgba(88,166,255,0.15);
-    --glow-green: rgba(63,185,80,0.15);
   }
+
+  /* --- Light Mode Fixes --- */
+  body.light-mode {
+    --bg: #f6f8fa;
+    --bg2: #ffffff;
+    --bg3: #ffffff;
+    --border: #d0d7de;
+    --text: #1f2328;
+    --muted: #656d76;
+  }
+  body.light-mode .hero { background: linear-gradient(135deg, #f6f8fa 0%, #e1e4e8 40%, #f6f8fa 100%); }
+  body.light-mode .nav-bar { background: rgba(255,255,255,0.95); }
+  body.light-mode .rxn-table th { background: rgba(0,0,0,0.05); color: var(--text); }
+  body.light-mode .rxn-table tr:hover td { background: rgba(0,0,0,0.03); }
+  body.light-mode .creator-attribution { border-color: rgba(0,0,0,0.1); background-color: rgba(0,0,0,0.05); color: var(--text); }
+  body.light-mode .creator-info { color: var(--text); }
+  body.light-mode .trick-box { background: rgba(57,211,83,0.15); }
+  body.light-mode .warn-box { background: rgba(248,81,73,0.15); }
+  body.light-mode .info-box { background: rgba(88,166,255,0.15); }
+  body.light-mode .reagent-calc-box { background: #ffffff; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -49,6 +59,7 @@
     font-family: 'Hind', sans-serif;
     font-size: 15px;
     line-height: 1.5;
+    transition: background 0.3s, color 0.3s;
   }
 
   /* HEADER */
@@ -59,13 +70,17 @@
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: background 0.3s;
   }
-  .hero::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(88,166,255,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 50%, rgba(210,168,255,0.08) 0%, transparent 60%);
-  }
+  .header-content { display: flex; align-items: center; justify-content: center; position: relative; max-width: 1600px; margin: 0 auto; flex-direction: column; gap: 15px; }
+  .creator-attribution { display: flex; align-items: center; gap: 15px; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); padding: 10px 15px; background-color: rgba(255, 255, 255, 0.15); border-radius: 50px; border: 2px solid rgba(255, 255, 255, 0.2); }
+  .creator-photo { width: 75px; height: 75px; border-radius: 50%; border: 3px solid rgba(255, 255, 255, 0.8); object-fit: cover; }
+  .creator-info { display: flex; flex-direction: column; text-align: left; }
+  .created-by { font-size: 0.9em; opacity: 0.8; }
+  .creator-name { font-size: 1.3em; font-weight: 700; margin-bottom: 3px; }
+  .creator-tag { font-size: 0.8em; opacity: 0.9; font-style: italic; }
+  @media (max-width: 1024px) { .header-content { flex-direction: column; gap: 20px; } .creator-attribution { position: static; transform: none; margin-top: 15px; } }
+
   .hero h1 {
     font-family: 'Baloo 2', cursive;
     font-size: 2.4rem;
@@ -74,27 +89,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    position: relative;
   }
-  .hero p {
-    color: var(--muted);
-    font-size: 1rem;
-    margin-top: 0.4rem;
-    position: relative;
-  }
-  .badge-row {
-    display: flex; flex-wrap: wrap; gap: 0.5rem;
-    justify-content: center; margin-top: 1rem;
-    position: relative;
-  }
-  .badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border: 1px solid;
-    font-family: 'Baloo 2', cursive;
-  }
+  .hero p { color: var(--muted); font-size: 1rem; margin-top: 0.4rem; }
+  
+  .theme-toggle { cursor: pointer; background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 8px 20px; border-radius: 20px; font-weight: 600; font-family:'Baloo 2', cursive; transition: 0.3s; margin-top: 10px; }
+  .theme-toggle:hover { background: var(--bg3); transform: scale(1.05); }
 
   /* NAV */
   .nav-bar {
@@ -105,243 +104,119 @@
     padding: 0.6rem 1rem;
     display: flex; flex-wrap: wrap; gap: 0.4rem;
     justify-content: center;
+    transition: background 0.3s;
   }
   .nav-btn {
     padding: 0.3rem 0.8rem;
     border-radius: 6px;
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     border: 1px solid transparent;
     background: var(--bg2);
-    color: var(--muted);
     transition: all 0.2s;
     font-family: 'Baloo 2', cursive;
     text-decoration: none;
   }
-  .nav-btn:hover { color: var(--text); border-color: var(--border); transform: translateY(-1px); }
+  .nav-btn:hover { border-color: var(--border); transform: translateY(-2px); }
 
   /* MAIN LAYOUT */
   .container { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
 
+  /* SEARCH BAR */
+  .search-container { margin-bottom: 20px; width: 100%; }
+  #searchInput { width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border); font-size: 1rem; background: var(--bg2); color: var(--text); outline: none; transition: 0.3s; }
+  #searchInput:focus { border-color: var(--highlight); box-shadow: 0 0 5px rgba(227, 179, 65, 0.3); }
+
   /* LEGEND */
-  .legend {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1rem 1.5rem;
-    margin-bottom: 1.5rem;
-    display: flex; flex-wrap: wrap; gap: 1rem;
-  }
-  .legend h3 { width: 100%; font-family: 'Baloo 2', cursive; color: var(--muted); font-size: 0.85rem; margin-bottom: 0.3rem; }
-  .leg-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; }
+  .legend { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.5rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+  .legend h3 { width: 100%; font-family: 'Baloo 2', cursive; color: var(--muted); font-size: 0.9rem; margin-bottom: 0.3rem; }
+  .leg-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; }
   .leg-dot { width: 12px; height: 12px; border-radius: 3px; }
 
-  /* CHAPTER */
-  .chapter {
-    margin-bottom: 2rem;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--bg2);
-  }
-  .chapter-header {
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    cursor: pointer;
-    transition: background 0.2s;
-    border-bottom: 1px solid var(--border);
-  }
+  /* REAGENT CALCULATOR */
+  .reagent-calc-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem; position: relative; overflow: hidden; }
+  .reagent-calc-box::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--highlight); }
+  .styled-select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg2); color: var(--text); font-family: 'Hind', sans-serif; font-size: 1rem; outline: none; margin-top: 10px; margin-bottom: 15px; cursor: pointer; }
+  .reagent-result-box { background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.3); border-left: 4px solid var(--alkane); padding: 15px; border-radius: 8px; font-size: 0.95rem; line-height: 1.6; }
+  .reagent-result-box.hidden { display: none; }
+  .result-title { font-weight: 700; font-family: 'Baloo 2', cursive; color: var(--alkane); font-size: 1.1rem; margin-bottom: 5px; }
+
+  /* POP-UP (ACTIVE RECALL) */
+  .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 1; transition: opacity 0.3s; }
+  .popup-overlay.hidden { opacity: 0; pointer-events: none; }
+  .popup-content { background: var(--bg2); border: 1px solid var(--border); padding: 2rem; border-radius: 12px; text-align: center; width: 90%; max-width: 450px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: translateY(0); transition: transform 0.3s; }
+  .popup-overlay.hidden .popup-content { transform: translateY(-30px); }
+  .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; cursor: pointer; background: none; border: none; color: var(--muted); transition: 0.2s; }
+  .close-btn:hover { color: var(--acid); }
+  .popup-title { font-family: 'Baloo 2', cursive; font-size: 1.4rem; color: var(--trick); margin-bottom: 10px; display: flex; justify-content: center; align-items: center; gap: 8px; }
+  .popup-text { font-size: 1.05rem; color: var(--text); background: var(--bg3); padding: 15px; border-radius: 8px; border: 1px dashed var(--border); }
+  .popup-trick { margin-top: 12px; font-size: 0.9rem; color: var(--highlight); font-weight: 600; }
+
+  /* CHAPTERS */
+  .chapter { margin-bottom: 2rem; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: var(--bg2); }
+  .chapter-header { padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.2s; }
   .chapter-header:hover { background: var(--bg3); }
   .chapter-icon { font-size: 1.8rem; }
-  .chapter-title {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
-  .chapter-sub { color: var(--muted); font-size: 0.85rem; margin-top: 0.1rem; }
+  .chapter-title { font-family: 'Baloo 2', cursive; font-size: 1.3rem; font-weight: 700; }
+  .chapter-sub { color: var(--muted); font-size: 0.85rem; }
   .chapter-body { padding: 1.2rem 1.5rem; }
 
   /* SECTIONS */
-  .section-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 1rem;
-  }
+  .section-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1rem; }
+  .section-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; position: relative; overflow: hidden; }
+  .section-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .section-title { font-family: 'Baloo 2', cursive; font-weight: 700; font-size: 1rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
 
-  .section-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .section-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-  .section-title {
-    font-family: 'Baloo 2', cursive;
-    font-weight: 700;
-    font-size: 0.95rem;
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  /* REACTION TABLE */
-  .rxn-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.82rem;
-    margin-top: 0.5rem;
-  }
-  .rxn-table th {
-    background: rgba(255,255,255,0.05);
-    padding: 0.4rem 0.6rem;
-    text-align: left;
-    font-family: 'Baloo 2', cursive;
-    font-size: 0.75rem;
-    color: var(--muted);
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-  .rxn-table td {
-    padding: 0.45rem 0.6rem;
-    border-bottom: 1px solid rgba(48,54,61,0.5);
-    vertical-align: top;
-    line-height: 1.4;
-  }
+  /* TABLES */
+  .rxn-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; margin-top: 0.5rem; }
+  .rxn-table th { background: rgba(255,255,255,0.05); padding: 0.4rem 0.6rem; text-align: left; font-family: 'Baloo 2', cursive; font-size: 0.75rem; color: var(--muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+  .rxn-table td { padding: 0.45rem 0.6rem; border-bottom: 1px solid rgba(48,54,61,0.5); vertical-align: top; line-height: 1.4; }
   .rxn-table tr:last-child td { border-bottom: none; }
   .rxn-table tr:hover td { background: rgba(255,255,255,0.03); }
 
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; margin-top: 0.6rem; }
+  .comp-table th { padding: 0.4rem 0.6rem; font-family: 'Baloo 2', cursive; font-size: 0.78rem; border-bottom: 2px solid var(--border); }
+  .comp-table td { padding: 0.4rem 0.6rem; border-bottom: 1px solid rgba(48,54,61,0.5); vertical-align: top; }
+  
   .reagent { color: var(--reagent); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
   .product { color: var(--product); font-weight: 600; }
   .catalyst { color: var(--catalyst); font-size: 0.75rem; }
   .condition { color: #79c0ff; font-size: 0.75rem; font-style: italic; }
 
   /* HIGHLIGHT BOXES */
-  .trick-box {
-    background: rgba(57,211,83,0.08);
-    border: 1px solid rgba(57,211,83,0.3);
-    border-left: 4px solid var(--trick);
-    border-radius: 8px;
-    padding: 0.7rem 1rem;
-    margin-top: 0.8rem;
-    font-size: 0.82rem;
-  }
-  .trick-box .trick-title {
-    color: var(--trick);
-    font-weight: 700;
-    font-family: 'Baloo 2', cursive;
-    font-size: 0.85rem;
-    margin-bottom: 0.3rem;
-  }
+  .trick-box { background: rgba(57,211,83,0.08); border: 1px solid rgba(57,211,83,0.3); border-left: 4px solid var(--trick); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.8rem; font-size: 0.82rem; }
+  .trick-box .trick-title { color: var(--trick); font-weight: 700; font-family: 'Baloo 2', cursive; font-size: 0.85rem; margin-bottom: 0.3rem; }
+  
+  .warn-box { background: rgba(248,81,73,0.08); border: 1px solid rgba(248,81,73,0.3); border-left: 4px solid var(--acid); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.8rem; font-size: 0.82rem; }
+  .warn-box .warn-title { color: var(--acid); font-weight: 700; font-family: 'Baloo 2', cursive; font-size: 0.85rem; margin-bottom: 0.3rem; }
 
-  .warn-box {
-    background: rgba(248,81,73,0.08);
-    border: 1px solid rgba(248,81,73,0.3);
-    border-left: 4px solid var(--acid);
-    border-radius: 8px;
-    padding: 0.7rem 1rem;
-    margin-top: 0.8rem;
-    font-size: 0.82rem;
-  }
-  .warn-box .warn-title {
-    color: var(--acid);
-    font-weight: 700;
-    font-family: 'Baloo 2', cursive;
-    font-size: 0.85rem;
-    margin-bottom: 0.3rem;
-  }
+  .info-box { background: rgba(88,166,255,0.08); border: 1px solid rgba(88,166,255,0.3); border-left: 4px solid var(--alkane); border-radius: 8px; padding: 0.7rem 1rem; margin-top: 0.8rem; font-size: 0.82rem; }
+  .info-box .info-title { color: var(--alkane); font-weight: 700; font-family: 'Baloo 2', cursive; font-size: 0.85rem; margin-bottom: 0.3rem; }
 
-  .info-box {
-    background: rgba(88,166,255,0.08);
-    border: 1px solid rgba(88,166,255,0.3);
-    border-left: 4px solid var(--alkane);
-    border-radius: 8px;
-    padding: 0.7rem 1rem;
-    margin-top: 0.8rem;
-    font-size: 0.82rem;
-  }
-  .info-box .info-title {
-    color: var(--alkane);
-    font-weight: 700;
-    font-family: 'Baloo 2', cursive;
-    font-size: 0.85rem;
-    margin-bottom: 0.3rem;
-  }
-
-  /* HIGHLIGHT SPAN */
   .hl { color: var(--highlight); font-weight: 700; }
   .hl-blue { color: var(--alkane); font-weight: 600; }
   .hl-green { color: var(--alkene); font-weight: 600; }
-  .hl-purple { color: var(--alkyne); font-weight: 600; }
-  .hl-orange { color: var(--catalyst); font-weight: 600; }
   .hl-red { color: var(--acid); font-weight: 600; }
+  .hl-orange { color: var(--catalyst); font-weight: 600; }
 
   /* ARROW REACTIONS */
-  .rxn-line {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.35rem 0;
-    font-size: 0.82rem;
-    flex-wrap: wrap;
-    border-bottom: 1px dashed rgba(48,54,61,0.7);
-  }
+  .rxn-line { display: flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0; font-size: 0.82rem; flex-wrap: wrap; border-bottom: 1px dashed rgba(48,54,61,0.7); }
   .rxn-line:last-child { border-bottom: none; }
   .arrow { color: var(--muted); font-size: 1.1rem; flex-shrink: 0; }
   .rxn-start { color: var(--text); }
-  .rxn-cond {
-    background: rgba(255,166,87,0.12);
-    border: 1px solid rgba(255,166,87,0.3);
-    border-radius: 4px;
-    padding: 0.1rem 0.4rem;
-    font-size: 0.72rem;
-    color: var(--catalyst);
-    font-family: 'JetBrains Mono', monospace;
-    white-space: nowrap;
-  }
+  .rxn-cond { background: rgba(255,166,87,0.12); border: 1px solid rgba(255,166,87,0.3); border-radius: 4px; padding: 0.1rem 0.4rem; font-size: 0.72rem; color: var(--catalyst); font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
   .rxn-end { color: var(--product); font-weight: 600; }
+  .num-badge { display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 22px; border-radius: 50%; font-size: 0.7rem; font-weight: 700; font-family: 'JetBrains Mono', monospace; flex-shrink: 0; }
 
-  /* COMPARISON TABLE */
-  .comp-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.8rem;
-    margin-top: 0.6rem;
-  }
-  .comp-table th {
-    padding: 0.4rem 0.6rem;
-    font-family: 'Baloo 2', cursive;
-    font-size: 0.78rem;
-    border-bottom: 2px solid var(--border);
-  }
-  .comp-table td {
-    padding: 0.4rem 0.6rem;
-    border-bottom: 1px solid rgba(48,54,61,0.5);
-    vertical-align: top;
-  }
+  /* MEMORY SECTION */
+  .memory-section { background: linear-gradient(135deg, rgba(57,211,83,0.05), rgba(88,166,255,0.05)); border: 1px solid rgba(57,211,83,0.2); border-radius: 12px; padding: 1.2rem; margin-top: 1rem; }
+  .memory-section h3 { font-family: 'Baloo 2', cursive; color: var(--trick); font-size: 1rem; margin-bottom: 0.8rem; }
 
-  /* PRODUCT TAG */
-  .tag {
-    display: inline-block;
-    padding: 0.1rem 0.5rem;
-    border-radius: 12px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    margin: 0.1rem;
-  }
-
-  /* COLLAPSIBLE */
-  .collapse-content { display: block; }
+  /* TRACKER */
+  .tracker-box { margin-top: 20px; padding: 15px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; }
+  .tracker-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 0.9em; font-weight: 500; color: var(--text); }
+  .tracker-item input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: var(--highlight); }
 
   /* CHAPTER COLORS */
   .ch-alkane .chapter-header { border-left: 4px solid var(--alkane); }
@@ -366,77 +241,25 @@
   .ch-acid .section-card::before { background: var(--acid); }
   .ch-amine .section-card::before { background: var(--amine); }
 
-  .num-badge {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    font-size: 0.7rem;
-    font-weight: 700;
-    font-family: 'JetBrains Mono', monospace;
-    flex-shrink: 0;
-  }
-
-  /* MEMORY TRICKS SECTION */
-  .memory-section {
-    background: linear-gradient(135deg, rgba(57,211,83,0.05), rgba(88,166,255,0.05));
-    border: 1px solid rgba(57,211,83,0.2);
-    border-radius: 12px;
-    padding: 1.2rem;
-    margin-top: 1rem;
-  }
-  .memory-section h3 {
-    font-family: 'Baloo 2', cursive;
-    color: var(--trick);
-    font-size: 1rem;
-    margin-bottom: 0.8rem;
-  }
-
-          /* --- Naye Advanced Features ka Design --- */
-        /* Light Mode (Kyunki original website dark hai) */
-        body.light-mode {
-            --bg: #f6f8fa;
-            --bg2: #ffffff;
-            --bg3: #ffffff;
-            --border: #d0d7de;
-            --text: #1f2328;
-            --muted: #656d76;
-        }
-        body.light-mode .hero { background: linear-gradient(135deg, #f6f8fa 0%, #e1e4e8 40%, #f6f8fa 100%); }
-        body.light-mode .nav-bar { background: rgba(255,255,255,0.95); }
-
-        .theme-toggle { cursor: pointer; background: var(--bg2); border: 1px solid var(--border); color: var(--text); padding: 6px 15px; border-radius: 20px; font-weight: 600; font-family:'Baloo 2', cursive; transition: 0.3s; margin-bottom: 10px; }
-        .theme-toggle:hover { background: var(--bg3); transform: scale(1.05); }
-
-        /* Search Bar */
-        .search-container { margin-bottom: 20px; width: 100%; }
-        #searchInput { width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid var(--border); font-size: 1rem; background: var(--bg2); color: var(--text); outline: none; transition: 0.3s; }
-        #searchInput:focus { border-color: var(--highlight); }
-
-        /* Study Tracker */
-        .tracker-box { margin-top: 20px; padding: 15px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; }
-        .tracker-item { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 0.9em; font-weight: 500; color: var(--text); }
-        .tracker-item input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: var(--highlight); }
-
-          
-  /* FOOTER */
-  .footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--muted);
-    font-size: 0.8rem;
-    border-top: 1px solid var(--border);
-    margin-top: 2rem;
-  }
-
+  .footer { text-align: center; padding: 2rem; color: var(--muted); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  .full-width { grid-column: 1 / -1; }
+  
   @media (max-width: 700px) {
     .section-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 1.6rem; }
   }
-
-  .full-width { grid-column: 1 / -1; }
 </style>
 </head>
 <body>
+
+    <div id="topicPopup" class="popup-overlay hidden">
+        <div class="popup-content">
+            <button class="close-btn" id="closePopupBtn">×</button>
+            <div class="popup-title">🧠 Topic of the Day</div>
+            <div id="popup-topic" class="popup-text">Loading...</div>
+            <div id="popup-trick" class="popup-trick"></div>
+        </div>
+    </div>
 
     <header>
         <div class="header-content hero">
@@ -444,10 +267,10 @@
                 <h1>⚗️ Complete Organic Chemistry NEET Notes</h1>
                 <p>Alkanes → Alkenes → Alkynes → Aromatic → Haloalkanes → Alcohol → Ether → Aldehyde/Ketone → Carboxylic Acid → Amines</p>
             </div>
-                      <button id="theme-toggle-btn" class="theme-toggle">🌙 Dark Mode</button>
+            <button id="theme-toggle-btn" class="theme-toggle">☀️ Light Mode</button>
 
             <div class="creator-attribution">
-                <img src="1000223590.jpg" alt="ADARSH KUMAR MISHRA" class="creator-photo">
+                <img src="1000223590.jpg" alt="ADARSH KUMAR MISHRA" class="creator-photo" onerror="this.src='https://via.placeholder.com/75?text=AKM'">
                 <div class="creator-info">
                     <span class="created-by">Created By:</span>
                     <span class="creator-name">ADARSH KUMAR MISHRA</span>
@@ -457,8 +280,6 @@
         </div>
     </header>
 
-
-<!-- NAV -->
 <div class="nav-bar">
   <a class="nav-btn" href="#alkane" style="color:var(--alkane)">Alkanes</a>
   <a class="nav-btn" href="#alkene" style="color:var(--alkene)">Alkenes</a>
@@ -471,26 +292,52 @@
   <a class="nav-btn" href="#aldket" style="color:var(--aldehyde)">Ald/Ket</a>
   <a class="nav-btn" href="#acid" style="color:var(--acid)">Carboxylic</a>
   <a class="nav-btn" href="#amine" style="color:var(--amine)">Amines</a>
+  <a class="nav-btn" href="#grignard" style="color:var(--ether)">Grignard</a>
   <a class="nav-btn" href="#tricks" style="color:var(--trick)">🧠 Memory Tricks</a>
 </div>
 
-<!-- LEGEND -->
 <div class="container">
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="🔍 Search organic concepts, reactions, or mnemonics...">
-            </div>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="🔍 Search organic concepts, reactions, or mnemonics...">
+    </div>
 
-<div class="legend">
-  <h3>🎨 COLOR LEGEND — Har rang ka matlab:</h3>
-  <div class="leg-item"><div class="leg-dot" style="background:var(--reagent)"></div><span class="reagent">Reagent (kya use karo)</span></div>
-  <div class="leg-item"><div class="leg-dot" style="background:var(--catalyst)"></div><span class="catalyst">Catalyst / Condition</span></div>
-  <div class="leg-item"><div class="leg-dot" style="background:var(--product)"></div><span class="product">Product (kya banega)</span></div>
-  <div class="leg-item"><div class="leg-dot" style="background:var(--trick)"></div><span style="color:var(--trick)">🧠 Memory Trick</span></div>
-  <div class="leg-item"><div class="leg-dot" style="background:var(--highlight)"></div><span class="hl">⚠️ Important / Exam Point</span></div>
-  <div class="leg-item"><div class="leg-dot" style="background:var(--acid)"></div><span style="color:var(--acid)">❌ Dhyan do / Exception</span></div>
-</div>
+    <div class="reagent-calc-box" id="calculator">
+        <div class="section-title" style="color:var(--highlight); font-size: 1.2rem;">⚡ Interactive Reagent Calculator</div>
+        <p style="font-size: 0.9em; color: var(--muted);">Reagent select करें और देखें कि वह ऑर्गेनिक केमिस्ट्री में क्या जादू करता है:</p>
+        
+        <select id="reagentSelect" class="styled-select">
+            <option value="">-- Choose a Reagent (कोई एक Reagent चुनें) --</option>
+            <option value="lialh4">LiAlH₄ (Lithium Aluminum Hydride)</option>
+            <option value="nabh4">NaBH₄ (Sodium Borohydride)</option>
+            <option value="pcc">PCC / PDC / CrO₃ (Mild Oxidizers)</option>
+            <option value="kmno4">KMnO₄ / K₂Cr₂O₇ / H⁺ (Strong Oxidizers)</option>
+            <option value="o3_zn">O₃ / Zn-H₂O (Reductive Ozonolysis)</option>
+            <option value="lindlar">Lindlar's Catalyst (Pd/BaSO₄ + Quinoline)</option>
+            <option value="birch">Na / Liq. NH₃ (Birch Reduction)</option>
+            <option value="zn_hg">Zn-Hg / Conc. HCl (Clemmensen Reduction)</option>
+            <option value="alc_koh">Alcoholic KOH (alc. KOH)</option>
+            <option value="aq_koh">Aqueous KOH (aq. KOH)</option>
+            <option value="sodalime">NaOH + CaO (Soda Lime)</option>
+        </select>
 
-<!-- ==================== ALKANES ==================== -->
+        <div id="reagentResult" class="reagent-result-box hidden">
+            <div id="res-title" class="result-title"></div>
+            <div id="res-desc"></div>
+            <div id="res-trick" class="trick-box" style="margin-top: 10px;"></div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <h3>🎨 COLOR LEGEND — Har rang ka matlab:</h3>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--reagent)"></div><span class="reagent">Reagent (kya use karo)</span></div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--catalyst)"></div><span class="catalyst">Catalyst / Condition</span></div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--product)"></div><span class="product">Product (kya banega)</span></div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--trick)"></div><span style="color:var(--trick)">🧠 Memory Trick</span></div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--highlight)"></div><span class="hl">⚠️ Important / Exam Point</span></div>
+        <div class="leg-item"><div class="leg-dot" style="background:var(--acid)"></div><span style="color:var(--acid)">❌ Dhyan do / Exception</span></div>
+    </div>
+
 <div class="chapter ch-alkane" id="alkane">
   <div class="chapter-header">
     <span class="chapter-icon">🔵</span>
@@ -502,7 +349,6 @@
   <div class="chapter-body">
     <div class="section-grid">
 
-      <!-- PREPARATION -->
       <div class="section-card">
         <div class="section-title" style="color:var(--alkane)">🏗️ PREPARATION OF ALKANES</div>
         <div class="rxn-line">
@@ -562,7 +408,6 @@
         </div>
       </div>
 
-      <!-- CHEMICAL PROPERTIES -->
       <div class="section-card">
         <div class="section-title" style="color:var(--alkane)">⚗️ CHEMICAL PROPERTIES</div>
         <div class="rxn-line">
@@ -615,11 +460,10 @@
         </div>
       </div>
 
-    </div><!-- end grid -->
+    </div>
   </div>
 </div>
 
-<!-- ==================== ALKENES ==================== -->
 <div class="chapter ch-alkene" id="alkene">
   <div class="chapter-header">
     <span class="chapter-icon">🟢</span>
@@ -631,7 +475,6 @@
   <div class="chapter-body">
     <div class="section-grid">
 
-      <!-- PREPARATION -->
       <div class="section-card">
         <div class="section-title" style="color:var(--alkene)">🏗️ PREPARATION OF ALKENES</div>
         <div class="rxn-line">
@@ -677,7 +520,6 @@
         </div>
       </div>
 
-      <!-- CHEMICAL PROPERTIES -->
       <div class="section-card">
         <div class="section-title" style="color:var(--alkene)">⚗️ CHEMICAL PROPERTIES (Addition Reactions)</div>
         <div class="rxn-line">
@@ -744,7 +586,6 @@
         </div>
       </div>
 
-      <!-- OZONOLYSIS SPECIAL -->
       <div class="section-card">
         <div class="section-title" style="color:var(--alkene)">🔬 OZONOLYSIS — Products याद करो</div>
         <table class="rxn-table">
@@ -766,7 +607,6 @@
   </div>
 </div>
 
-<!-- ==================== ALKYNES ==================== -->
 <div class="chapter ch-alkyne" id="alkyne">
   <div class="chapter-header">
     <span class="chapter-icon">🟣</span>
@@ -873,7 +713,6 @@
   </div>
 </div>
 
-<!-- ==================== AROMATIC ==================== -->
 <div class="chapter ch-aromatic" id="aromatic">
   <div class="chapter-header">
     <span class="chapter-icon">🟠</span>
@@ -976,7 +815,6 @@
         </div>
       </div>
 
-      <!-- DIRECTING EFFECTS -->
       <div class="section-card">
         <div class="section-title" style="color:var(--aromatic)">📍 DIRECTING EFFECTS</div>
         <table class="rxn-table">
@@ -1009,7 +847,6 @@
   </div>
 </div>
 
-<!-- ==================== HALOALKANES ==================== -->
 <div class="chapter ch-halo" id="halo">
   <div class="chapter-header">
     <span class="chapter-icon">🟤</span>
@@ -1060,7 +897,6 @@
         </div>
       </div>
 
-      <!-- SN1 vs SN2 -->
       <div class="section-card">
         <div class="section-title" style="color:var(--halo)">⚡ SN1 vs SN2 — Super Important!</div>
         <table class="comp-table">
@@ -1109,7 +945,6 @@
         </div>
       </div>
 
-      <!-- NUCLEOPHILIC REACTIONS -->
       <div class="section-card">
         <div class="section-title" style="color:var(--halo)">🎯 NSR PRODUCTS (R-X + Nu →)</div>
         <table class="rxn-table">
@@ -1135,7 +970,6 @@
   </div>
 </div>
 
-<!-- ==================== ALCOHOL ==================== -->
 <div class="chapter ch-alcohol" id="alcohol">
   <div class="chapter-header">
     <span class="chapter-icon">🔴</span>
@@ -1258,7 +1092,6 @@
   </div>
 </div>
 
-<!-- ==================== PHENOL ==================== -->
 <div class="chapter ch-alcohol" id="phenol">
   <div class="chapter-header">
     <span class="chapter-icon">🌸</span>
@@ -1320,7 +1153,6 @@
   </div>
 </div>
 
-<!-- ==================== ETHER ==================== -->
 <div class="chapter ch-ether" id="ether">
   <div class="chapter-header">
     <span class="chapter-icon">🟣</span>
@@ -1395,7 +1227,6 @@
   </div>
 </div>
 
-<!-- ==================== ALDEHYDE & KETONE ==================== -->
 <div class="chapter ch-aldket" id="aldket">
   <div class="chapter-header">
     <span class="chapter-icon">🔵</span>
@@ -1533,7 +1364,6 @@
         </div>
       </div>
 
-      <!-- OXIDATION TESTS -->
       <div class="section-card">
         <div class="section-title" style="color:var(--aldehyde)">🧪 OXIDATION TESTS (Aldehyde only)</div>
         <table class="rxn-table">
@@ -1542,7 +1372,7 @@
             <td class="hl">Tollens Test</td>
             <td class="reagent">AgNO₃ + NH₄OH [Ag(NH₃)₂]⁺</td>
             <td class="product">All Aldehydes (Ali + Aro)</td>
-            <td>Silver Mirror ✅</td>
+            <td>Silver Mirror ✨</td>
           </tr>
           <tr>
             <td class="hl">Fehling's Test</td>
@@ -1571,7 +1401,6 @@
         </div>
       </div>
 
-      <!-- ALDOL CONDENSATION -->
       <div class="section-card">
         <div class="section-title" style="color:var(--aldehyde)">🔗 ALDOL & CANNIZZARO REACTIONS</div>
         <div class="rxn-line">
@@ -1613,7 +1442,6 @@
   </div>
 </div>
 
-<!-- ==================== CARBOXYLIC ACID ==================== -->
 <div class="chapter ch-acid" id="acid">
   <div class="chapter-header">
     <span class="chapter-icon">🔴</span>
@@ -1729,7 +1557,6 @@
   </div>
 </div>
 
-<!-- ==================== AMINES ==================== -->
 <div class="chapter ch-amine" id="amine">
   <div class="chapter-header">
     <span class="chapter-icon">🟡</span>
@@ -1833,7 +1660,6 @@
         </div>
       </div>
 
-      <!-- DIAZONIUM SALT -->
       <div class="section-card full-width">
         <div class="section-title" style="color:var(--amine)">💎 DIAZONIUM SALT (PhN₂⁺Cl⁻) — Very Important!</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:0.8rem;margin-top:0.5rem">
@@ -1877,7 +1703,6 @@
   </div>
 </div>
 
-<!-- ==================== GRIGNARD ==================== -->
 <div class="chapter ch-ether" id="grignard">
   <div class="chapter-header">
     <span class="chapter-icon">🔮</span>
@@ -1931,7 +1756,6 @@
   </div>
 </div>
 
-<!-- ==================== MEMORY TRICKS MASTER ==================== -->
 <div class="memory-section" id="tricks">
   <h3>🧠 MASTER MEMORY TRICKS — NEET ke liye sabse zaroori!</h3>
   <div class="section-grid">
@@ -2026,78 +1850,210 @@
   </div>
 </div>
 
-              <div class="tracker-box">
-                <h4 style="color: var(--primary-color); margin-bottom: 10px;">NCERT Daily Tracker</h4>
-                <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> GOC Complete Reading</label>
-                <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> Solved 50 MCQs</label>
-                <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> Revised Reaction Mechanism</label>
-            </div>
+<div class="tracker-box">
+    <h4 style="color: var(--highlight); margin-bottom: 15px; font-family: 'Baloo 2', cursive; font-size: 1.2rem;">📝 Daily Organic Tracker (Progress Saved!)</h4>
+    <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> GOC Complete Reading</label>
+    <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> Named Reactions Revised (Wurtz, Aldol, Cannizzaro)</label>
+    <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> Solved 50 Organic MCQs</label>
+    <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> Reagent Functions Reviewed</label>
+    <label class="tracker-item"><input type="checkbox" class="tracker-checkbox"> NCERT Back Exercises (1 Chapter)</label>
+</div>
                   
 <div class="footer">
-  ⚗️ Complete Organic Chemistry NEET Notes — सभी reactions covered | 100% Notes Coverage<br>
-  <span style="color:var(--trick)">🧠 Read the color legend — Reagent (blue), Catalyst (orange), Product (green), Trick (bright green)</span><br>
-  <small style="color:var(--muted)">Best of luck for NEET! — याद रखो: Practice > Memorize</small>
+    ⚗️ Complete Organic Chemistry NEET Notes — सभी reactions covered | 100% Notes Coverage<br>
+    <span style="color:var(--trick)">🧠 Read the color legend — Reagent (blue), Catalyst (orange), Product (green), Trick (bright green)</span><br>
+    <small style="color:var(--muted)">Best of luck for NEET! — याद रखो: Practice > Memorize</small>
 </div>
 
-</div><!-- container -->
+</div><script>
+    // --------------------------------------------------------
+    // SMOOTH SCROLL (From original)
+    // --------------------------------------------------------
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
 
-<script>
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-</script>
-    <script>
-        // 1. Light/Dark Mode Logic (Fixed for your dark theme)
-        const themeBtn = document.getElementById('theme-toggle-btn');
-        themeBtn.innerText = '☀️ Light Mode'; 
-        
-        if(localStorage.getItem('theme') === 'light') {
-            document.body.classList.add('light-mode');
+    // --------------------------------------------------------
+    // 1. LIGHT/DARK MODE TOGGLE LOGIC
+    // --------------------------------------------------------
+    const themeBtn = document.getElementById('theme-toggle-btn');
+    
+    if(localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+        themeBtn.innerText = '🌙 Dark Mode';
+    } else {
+        themeBtn.innerText = '☀️ Light Mode';
+    }
+
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if(document.body.classList.contains('light-mode')) {
+            localStorage.setItem('theme', 'light');
             themeBtn.innerText = '🌙 Dark Mode';
+        } else {
+            localStorage.setItem('theme', 'dark');
+            themeBtn.innerText = '☀️ Light Mode';
         }
-        if(themeBtn) {
-            themeBtn.addEventListener('click', () => {
-                document.body.classList.toggle('light-mode');
-                if(document.body.classList.contains('light-mode')) {
-                    localStorage.setItem('theme', 'light');
-                    themeBtn.innerText = '🌙 Dark Mode';
-                } else {
-                    localStorage.setItem('theme', 'dark');
-                    themeBtn.innerText = '☀️ Light Mode';
-                }
-            });
-        }
+    });
 
-        // 2. Live Search Logic (Fixed class name to .section-card)
-        const searchInput = document.getElementById('searchInput');
-        if(searchInput) {
-            searchInput.addEventListener('keyup', function() {
-                let filter = this.value.toLowerCase();
-                let cards = document.querySelectorAll('.section-card'); 
-                cards.forEach(card => {
-                    let text = card.innerText.toLowerCase();
-                    card.style.display = text.includes(filter) ? '' : 'none';
-                });
-            });
-        }
-
-        // 3. Study Tracker Memory Logic
-        const checkboxes = document.querySelectorAll('.tracker-checkbox');
-        checkboxes.forEach((box, index) => {
-            if(localStorage.getItem('tracker_' + index) === 'true') {
-                box.checked = true;
-            }
-            box.addEventListener('change', function() {
-                localStorage.setItem('tracker_' + index, this.checked);
+    // --------------------------------------------------------
+    // 2. LIVE SEARCH LOGIC
+    // --------------------------------------------------------
+    const searchInput = document.getElementById('searchInput');
+    if(searchInput) {
+        searchInput.addEventListener('keyup', function() {
+            let filter = this.value.toLowerCase();
+            let cards = document.querySelectorAll('.section-card'); 
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                card.style.display = text.includes(filter) ? '' : 'none';
             });
         });
-    </script>
+    }
 
-                  
+    // --------------------------------------------------------
+    // 3. STUDY TRACKER MEMORY LOGIC
+    // --------------------------------------------------------
+    const checkboxes = document.querySelectorAll('.tracker-checkbox');
+    checkboxes.forEach((box, index) => {
+        if(localStorage.getItem('tracker_' + index) === 'true') {
+            box.checked = true;
+        }
+        box.addEventListener('change', function() {
+            localStorage.setItem('tracker_' + index, this.checked);
+        });
+    });
+
+    // --------------------------------------------------------
+    // 4. "TOPIC OF THE DAY" POP-UP 
+    // --------------------------------------------------------
+    const topics = [
+        {
+            title: "Reimer-Tiemann Reaction",
+            text: "Phenol + CHCl₃ + aq. NaOH ➔ Salicylaldehyde (Ortho Major)",
+            trick: "Trick: 'R-T' मतलब 'रट्टा मारो', Phenol में Chloroform डालकर Aldehyde बनाओ!"
+        },
+        {
+            title: "Aldol Condensation",
+            text: "Requires: α-Hydrogen + Dilute Base (NaOH/Ba(OH)₂).",
+            text2: "Forms β-hydroxy aldehyde/ketone, then on heating forms α,β-unsaturated carbonyl.",
+            trick: "Trick: 'Al-Dol' = Aldehyde + Alcohol (OH) दोनों एक ही कंपाउंड में!"
+        },
+        {
+            title: "Cannizzaro Reaction",
+            text: "Requires: NO α-Hydrogen (e.g., HCHO, PhCHO) + Concentrated Base (50% KOH).",
+            trick: "Trick: Disproportionation! एक मॉलिक्यूल का Oxidation (Acid), दूसरे का Reduction (Alcohol)."
+        },
+        {
+            title: "Friedel-Crafts Acylation",
+            text: "Benzene + R-COCl + Anhydrous AlCl₃ ➔ Ketone",
+            trick: "Trick: Acylation में Carbocation Rearrangement नहीं होता! (A = Accurate)"
+        },
+        {
+            title: "Hoffmann Bromamide Degradation",
+            text: "Amide (R-CONH₂) + Br₂ + 4NaOH ➔ 1° Amine (R-NH₂)",
+            trick: "Trick: 'Degradation' मतलब Carbon कम होना। बीच का C=O गायब हो जाता है!"
+        }
+    ];
+
+    window.onload = function() {
+        const randomTopic = topics[Math.floor(Math.random() * topics.length)];
+        
+        document.getElementById('popup-topic').innerHTML = `<strong>${randomTopic.title}</strong><br><br>${randomTopic.text} ${randomTopic.text2 ? '<br>'+randomTopic.text2 : ''}`;
+        document.getElementById('popup-trick').innerText = randomTopic.trick;
+
+        // Show popup after 1.5 seconds
+        setTimeout(() => {
+            document.getElementById('topicPopup').classList.remove('hidden');
+        }, 1500);
+    };
+
+    document.getElementById('closePopupBtn').addEventListener('click', () => {
+        document.getElementById('topicPopup').classList.add('hidden');
+    });
+
+    // --------------------------------------------------------
+    // 5. INTERACTIVE REAGENT CALCULATOR
+    // --------------------------------------------------------
+    const reagentData = {
+        "lialh4": {
+            title: "LiAlH₄ (Strong Reducing Agent)",
+            desc: "यह बहुत ताकतवर Reducing Agent है। यह Aldehyde, Ketone, Carboxylic Acid, Ester, Acid Chloride, Amide... लगभग सबको Reduce करके Alcohol या Amine बना देता है।",
+            trick: "🧠 <b>Trick:</b> 'बाहुबली Reagent!' Double bond (C=C) को touch नहीं करता, लेकिन बाकी सब Oxygen वालों को Alcohol बना देता है।"
+        },
+        "nabh4": {
+            title: "NaBH₄ (Mild Reducing Agent)",
+            desc: "यह थोड़ा कमज़ोर Reducing Agent है। यह सिर्फ Aldehyde, Ketone और Acid Chlorides को Reduce करके Alcohol बनाता है।",
+            trick: "🧠 <b>Trick:</b> 'डरपोक Reagent!' यह Acid और Ester को छू भी नहीं सकता। C=C को भी reduce नहीं करता।"
+        },
+        "pcc": {
+            title: "PCC / PDC (Mild Oxidizing Agents)",
+            desc: "यह 1° Alcohol को Aldehyde पर रोक देता है (Acid नहीं बनने देता)। 2° Alcohol को Ketone बनाता है।",
+            trick: "🧠 <b>Trick:</b> 'Speed Breaker!' Oxidation करता है पर बीच में ही गाड़ी रोक देता है (Aldehyde पर)।"
+        },
+        "kmno4": {
+            title: "KMnO₄ / K₂Cr₂O₇ / H⁺ (Strong Oxidizers)",
+            desc: "यह 1° Alcohol और Aldehydes को सीधा Carboxylic Acid में बदल देते हैं। Alkyl Benzene को Benzoic Acid बना देते हैं।",
+            trick: "🧠 <b>Trick:</b> 'Express Train!' सीधा Acid स्टेशन पर ही जाकर रुकती है।"
+        },
+        "o3_zn": {
+            title: "O₃ / Zn-H₂O (Reductive Ozonolysis)",
+            desc: "यह Alkene (C=C) को तोड़कर C=O और O=C (Aldehyde/Ketone) बनाता है।",
+            trick: "🧠 <b>Trick:</b> 'तलवार का वार!' C=C बॉन्ड को बीच से काटो और दोनों तरफ एक-एक Oxygen (O) चिपका दो।"
+        },
+        "lindlar": {
+            title: "Lindlar's Catalyst (Pd/BaSO₄ + Quinoline)",
+            desc: "यह Alkyne का आंशिक (Partial) Reduction करके उसे <b>Cis-Alkene</b> पर रोक देता है। Alkane नहीं बनने देता।",
+            trick: "🧠 <b>Trick:</b> 'L = Lindlar = Low = Cis'. यह syn-addition करता है।"
+        },
+        "birch": {
+            title: "Birch Reduction (Na / Liq. NH₃)",
+            desc: "यह Alkyne का Reduction करके उसे <b>Trans-Alkene</b> बनाता है।",
+            trick: "🧠 <b>Trick:</b> 'B = Birch = Bold = Trans'. यह Anti-addition करता है।"
+        },
+        "zn_hg": {
+            title: "Clemmensen Reduction (Zn-Hg / Conc. HCl)",
+            desc: "यह Aldehyde या Ketone के (C=O) ग्रुप को पूरी तरह हटाकर उसे (CH₂) यानी Alkane में बदल देता है।",
+            trick: "🧠 <b>Trick:</b> 'Oxygen हटाओ, Hydrogen लगाओ!' Acid sensitive compounds में इसका यूज़ नहीं करते।"
+        },
+        "alc_koh": {
+            title: "Alcoholic KOH (alc. KOH)",
+            desc: "यह Alkyl Halide (R-X) में से HX निकाल कर (Dehydrohalogenation) <b>Alkene</b> बनाता है। (Elimination Reaction)",
+            trick: "🧠 <b>Trick:</b> 'Alcoholic = आक्रामक!' यह सब्स्टीट्यूशन नहीं, सीधा Elimination करता है (डबल बॉन्ड बनाता है)।"
+        },
+        "aq_koh": {
+            title: "Aqueous KOH (aq. KOH)",
+            desc: "यह Alkyl Halide (R-X) में X हटाकर OH लगा देता है और <b>Alcohol</b> बनाता है। (Nucleophilic Substitution - SN)",
+            trick: "🧠 <b>Trick:</b> 'Aqueous = शांत पानी!' यह बस X को हटाकर अपना OH चिपका देता है।"
+        },
+        "sodalime": {
+            title: "Soda Lime (NaOH + CaO)",
+            desc: "यह Carboxylic Acid के Sodium salt (R-COONa) में से CO₂ निकालकर उसे <b>Alkane (R-H)</b> बना देता है।",
+            trick: "🧠 <b>Trick:</b> 'Decarboxylation!' इसमें कार्बन चेन एक (1) कार्बन कम हो जाती है।"
+        }
+    };
+
+    const reagentSelect = document.getElementById('reagentSelect');
+    const reagentResult = document.getElementById('reagentResult');
+
+    if(reagentSelect) {
+        reagentSelect.addEventListener('change', function() {
+            const val = this.value;
+            if(val && reagentData[val]) {
+                document.getElementById('res-title').innerHTML = reagentData[val].title;
+                document.getElementById('res-desc').innerHTML = reagentData[val].desc;
+                document.getElementById('res-trick').innerHTML = reagentData[val].trick;
+                reagentResult.classList.remove('hidden');
+            } else {
+                reagentResult.classList.add('hidden');
+            }
+        });
+    }
+</script>
+
 </body>
 </html>
